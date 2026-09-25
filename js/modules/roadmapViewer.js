@@ -1,6 +1,6 @@
 // ==========================================================================
 // YOMU (ヨム) — Roadmap Viewer Module (Bilingual ES/EN)
-// Interactive Milestone Timeline & Phase Filtering (v3.0 to v3.4)
+// Interactive Milestone Timeline & Phase Filtering (v3.0 to v3.3)
 // ==========================================================================
 
 (function() {
@@ -48,7 +48,6 @@
                   ${statusLabel}
                 </span>
               </div>
-              <span class="roadmap-timeframe">${item.timeframe}</span>
             </div>
 
             <p class="roadmap-summary">${summary}</p>
