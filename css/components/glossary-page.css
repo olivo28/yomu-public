@@ -1,0 +1,185 @@
+/* ==========================================================================
+   YOMU (ヨム) — Dedicated Glossary Page Stylesheet
+   Full-width searchable 29-term canonical engineering dictionary
+   ========================================================================== */
+
+.glossary-hero {
+  padding: 120px 0 40px 0;
+  text-align: center;
+}
+
+.glossary-controls-section {
+  padding-bottom: 40px;
+}
+
+.glossary-search-box {
+  max-width: 680px;
+  margin: 0 auto 24px auto;
+  position: relative;
+}
+
+.glossary-search-box input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 14px 20px 14px 48px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.glossary-search-box input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  background: var(--bg-secondary);
+}
+
+.glossary-search-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Category Filter Bar */
+.glossary-categories-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.glossary-cat-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.glossary-cat-pill:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.glossary-cat-pill.active {
+  background: rgba(99, 102, 241, 0.18);
+  color: #818cf8;
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
+}
+
+/* Glossary Term Cards Grid */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.glossary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.glossary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.glossary-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), 0 8px 24px rgba(99, 102, 241, 0.08);
+}
+
+.glossary-card:hover::before {
+  opacity: 1;
+}
+
+.glossary-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.glossary-card-term {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+}
+
+.glossary-card-category {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.glossary-card-def {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.glossary-empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+
+.glossary-empty-state svg {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.glossary-counter-badge {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 12px;
+  text-align: center;
+}

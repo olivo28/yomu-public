@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOMU (ヨム) — The Hybrid Manga & Webtoon Engine for Desktop</title>
+  <meta name="description" content="Yomu es una aplicación de escritorio nativa para Windows y Linux que unifica tu biblioteca local de manga y webtoons (.cbz, .zip, .pdf) con scraping modular sigiloso y sincronización tri-tracker con AniList, MyAnimeList y MangaBaka.">
+  <meta name="keywords" content="Yomu, manga reader, webtoon reader, desktop manga, cbz reader, anilist sync, myanimelist sync, mangabaka, tachiyomi alternative desktop">
+  <meta name="author" content="Olivo28">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YOMU (ヨム) — Hybrid Desktop Manga Engine">
+  <meta property="og:description" content="Closed Private Beta v3.0.0 [RESONANCE]. Zero telemetry, 100% offline-first, dual SQLite vault, and unified cloud tracking.">
+  <meta property="og:image" content="./assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components/quick-nav.css">
+  <link rel="stylesheet" href="./css/components/hero.css">
+  <link rel="stylesheet" href="./css/components/reader-sim.css">
+  <link rel="stylesheet" href="./css/components/gallery.css">
+  <link rel="stylesheet" href="./css/components/sync-hub-sim.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">
+        <img src="./assets/logo.png" alt="Yomu Logo" class="nav-logo">
+        <span data-i18n="nav.brand">YOMU</span>
+        <span class="nav-brand-tag">v3.0.0 [RESONANCE]</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html" class="nav-link active" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="./architecture.html" class="nav-link" data-i18n="nav.architecture">Arquitectura</a></li>
+        <li><a href="./ecosystem.html" class="nav-link" data-i18n="nav.ecosystem">Ecosistema & Datos</a></li>
+        <li><a href="./glossary.html" class="nav-link" data-i18n="nav.glossary">Glosario (29)</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating Quick-Navigation Rail (Left Side Dock) -->
+  <aside class="quick-nav-dock" aria-label="Quick navigation rail">
+    <div class="quick-nav-header" data-i18n="quicknav.header">Secciones</div>
+    <a href="#simulator" class="quick-nav-item active" data-nav-tooltip="Simulador">
+      <span class="quick-nav-icon">⚡</span>
+      <span class="quick-nav-label" data-i18n="quicknav.simulator">Simulador</span>
+    </a>
+    <a href="#gallery" class="quick-nav-item" data-nav-tooltip="Interfaz Real">
+      <span class="quick-nav-icon">🖼️</span>
+      <span class="quick-nav-label" data-i18n="quicknav.gallery">Interfaz Real</span>
+    </a>
+    <a href="#sync-hub" class="quick-nav-item" data-nav-tooltip="Sync Hub">
+      <span class="quick-nav-icon">🔄</span>
+      <span class="quick-nav-label" data-i18n="quicknav.syncHub">Sync Hub</span>
+    </a>
+    <a href="#portal" class="quick-nav-item" data-nav-tooltip="Exploración">
+      <span class="quick-nav-icon">🏛️</span>
+      <span class="quick-nav-label" data-i18n="quicknav.portal">Exploración</span>
+    </a>
+  </aside>
+
+  <!-- Hero Section -->
+  <header class="section hero-section">
+    <div class="container hero-wrapper">
+      <div class="hero-status-pill">
+        <span class="hero-status-dot"></span>
+        <span data-i18n="hero.badge">BETA PRIVADA EN PRUEBAS • v3.0.0 [RESONANCE] • 16 SUITES PASADAS</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero.title">El Lector Híbrido de Manga y Webtoons para Escritorio</span>
+        <span class="kanji-accent">ヨム</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Software nativo para Windows y Linux diseñado para unificar tu biblioteca local de archivos (.cbz, .zip, .pdf) con scraping modular sigiloso y sincronización automática tri-tracker con AniList, MyAnimeList y MangaBaka.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#simulator" class="btn btn-primary" data-i18n="hero.ctaSimulator">Probar Simulador del Motor</a>
+        <a href="./architecture.html" class="btn btn-secondary" data-i18n="hero.ctaArchitecture">Ver Arquitectura Interna</a>
+      </div>
+
+      <div class="hero-notice">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span data-i18n="hero.privateBetaNotice">Actualmente en fase de pruebas internas y optimización cerrada por el creador Olivo28. No disponible para descarga pública por el momento.</span>
+      </div>
+
+      <!-- Telemetry Metrics Bar -->
+      <div class="telemetry-bar">
+        <div class="telemetry-grid">
+          <div class="telemetry-item">
+            <div class="telemetry-val" data-i18n="telemetry.seriesVal">80,000+</div>
+            <div class="telemetry-label" data-i18n="telemetry.series">Catálogo Maestro</div>
+            <div class="telemetry-sub" data-i18n="telemetry.seriesSub">Series en SQLite WAL</div>
+          </div>
+          <div class="telemetry-item">
+            <div class="telemetry-val" data-i18n="telemetry.bufferVal">Renderizado Fluido</div>
+            <div class="telemetry-label" data-i18n="telemetry.buffer">Motor de Viewport</div>
+            <div class="telemetry-sub" data-i18n="telemetry.bufferSub">Cero VRAM Leak · Buffer de 1,200px</div>
+          </div>
+          <div class="telemetry-item">
+            <div class="telemetry-val" data-i18n="telemetry.privacyVal">100% Offline</div>
+            <div class="telemetry-label" data-i18n="telemetry.privacy">Privacidad Absoluta</div>
+            <div class="telemetry-sub" data-i18n="telemetry.privacySub">0 ms Telemetría Externa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: Live Reader Simulator (Authentic Replica) -->
+  <section class="section" id="simulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="reader.tag">Simulador en Vivo</span>
+        <h2 class="section-title" data-i18n="reader.title">Experimenta el Motor de Lectura en Tiempo Real</h2>
+        <p class="section-subtitle" data-i18n="reader.subtitle">Emulación funcional idéntica al visor nativo de Yomu: Cascada continua con slider de margen, Pliego Doble RTL con cambio de paridad 'P' y filtros GPU en tiempo real.</p>
+      </div>
+
+      <div class="reader-sim-container">
+        <!-- Titlebar -->
+        <div class="reader-sim-header">
+          <div class="reader-window-controls">
+            <span class="reader-window-dot"></span>
+            <span class="reader-window-dot"></span>
+            <span class="reader-window-dot"></span>
+          </div>
+          <span class="reader-window-title" data-i18n="reader.windowTitle">MOTOR DE LECTURA YOMU — VISTA PREVIA DEL VIEWPORT</span>
+          <span class="badge badge-emerald" data-i18n="reader.fluidBadge">Renderizado Fluido</span>
+        </div>
+
+        <!-- Authentic Top HUD -->
+        <div class="reader-hud-top" id="reader-hud-top">
+          <div class="reader-hud-left">
+            <button class="reader-back-btn" id="reader-back-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              <span data-i18n="reader.backBtn">Volver</span>
+            </button>
+            <span class="reader-title" data-i18n="reader.seriesTitle">Give My Regards to Black Jack (Shuho Sato)</span>
+            <select class="reader-chapter-select" id="reader-chapter-select">
+              <option value="1" data-i18n="reader.chapter1">Capítulo 1 - El Primer Día</option>
+              <option value="2" data-i18n="reader.chapter2">Capítulo 2 - Noche de Guardia</option>
+              <option value="3" data-i18n="reader.chapter3">Capítulo 3 - Vocación Médica</option>
+            </select>
+          </div>
+
+          <div class="reader-hud-right">
+            <button class="reader-icon-btn btn-active" data-reader-mode="webtoon" title="Formato: Cascada" data-i18n-title="reader.hudWebtoon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="4.5" rx="1.2"/><rect x="5" y="9.75" width="14" height="4.5" rx="1.2"/><rect x="5" y="16.5" width="14" height="4.5" rx="1.2"/></svg>
+            </button>
+            <button class="reader-icon-btn" data-reader-mode="double" title="Formato: Doble" data-i18n-title="reader.hudDouble">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="9" height="17" rx="1.5"/><rect x="12.5" y="3.5" width="9" height="17" rx="1.5"/><line x1="5.5" y1="8" x2="8.5" y2="8"/><line x1="15.5" y1="8" x2="18.5" y2="8"/></svg>
+            </button>
+            <button class="reader-icon-btn" data-reader-mode="single" title="Formato: Simple" data-i18n-title="reader.hudSingle">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+            </button>
+            <button class="reader-icon-btn reader-parity-btn" id="reader-parity-btn" style="display:none;" title="Compensación de Paridad (P)" data-i18n-title="reader.parityBtn">P</button>
+            <button class="reader-icon-btn" id="reader-hud-settings" title="Ajustes del Lector" data-i18n-title="reader.settingsBtn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Floating Options Panel (Settings ⚙️) -->
+        <div class="reader-options-panel" id="reader-options-panel">
+          <div class="reader-options-header" data-i18n="reader.optionsHeader">Opciones del Lector</div>
+          <div class="reader-slider-group">
+            <div class="reader-slider-labels">
+              <span data-i18n="reader.cascadeMargin">Margen de Cascada</span>
+              <span id="val-reader-cascade-margin">0px</span>
+            </div>
+            <input type="range" class="reader-cascade-slider" id="reader-cascade-margin" min="0" max="50" value="0">
+          </div>
+        </div>
+
+        <!-- Side Filter Menu (Translucent floating dock) -->
+        <div class="reader-side-menu" id="reader-side-menu">
+          <div class="side-menu-header" data-i18n="reader.filtersTitle">FILTROS GPU</div>
+          <button class="side-menu-item active" data-action="filter-none" data-i18n="reader.filterNone">Ninguno (Default)</button>
+          <button class="side-menu-item" data-action="filter-smooth" data-i18n="reader.filterSmooth">Suavizado (Sharp)</button>
+          <button class="side-menu-item" data-action="filter-crisp" data-i18n="reader.filterCrisp">Crisp (Pixel Art)</button>
+          <button class="side-menu-item" data-action="filter-contrast" data-i18n="reader.filterContrast">Contraste Alto</button>
+          <button class="side-menu-item" data-action="filter-invert" data-i18n="reader.filterInvert">Invertir (Noche)</button>
+          <button class="side-menu-item" data-action="filter-sepia" data-i18n="reader.filterSepia">Sepia</button>
+          <button class="side-menu-item" data-action="filter-sharpen" data-i18n="reader.filterSharpen">Enfoque (Sharpen)</button>
+        </div>
+
+        <!-- Pitch-Black Workspace Viewport -->
+        <div class="reader-sim-viewport" id="reader-sim-viewport">
+          <div class="reader-workspace" id="reader-workspace">
+            <!-- Populated with authentic sample pages by readerSimulator.js -->
+          </div>
+          <!-- Floating Page Indicator Pill -->
+          <div class="reader-page-indicator" id="reader-page-indicator">1 / 6</div>
+        </div>
+      </div>
+
+      <!-- Sleek External Telemetry Bar Below Simulator -->
+      <div class="reader-telemetry-bar">
+        <div class="reader-telemetry-item">
+          <span class="chip-dot chip-dot-emerald"></span>
+          <span data-i18n="reader.telemetryBuffer">Buffer Viewport ±1,200px: Solo páginas activas en GPU VRAM</span>
+        </div>
+        <div class="reader-telemetry-item">
+          <span class="chip-dot chip-dot-cyan"></span>
+          <span data-i18n="reader.telemetryFps">Renderizado fluido con Pipeline Sharp C++ sin micro-stutter</span>
+        </div>
+        <div class="reader-telemetry-item">
+          <span class="chip-dot chip-dot-amber"></span>
+          <span data-i18n="reader.telemetryRtl">Navegación RTL: Clics izq/der adaptados al sentido de lectura</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Real App Interface Gallery -->
+  <section class="section" id="gallery">
+    <div class="container gallery-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="gallery.tag">Capturas Nativas del Sistema</span>
+        <h2 class="section-title" data-i18n="gallery.title">Explora la Interfaz Real de Yomu</h2>
+        <p class="section-subtitle" data-i18n="gallery.subtitle">Capturas de pantalla auténticas a 1080p generadas directamente desde el runtime de Electron.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-category-bar" id="gallery-categories">
+        <!-- Populated by galleryViewer.js -->
+      </div>
+
+      <!-- Interactive Tab Selector -->
+      <div class="gallery-tabs" id="gallery-tabs">
+        <!-- Populated by galleryViewer.js -->
+      </div>
+
+      <!-- Desktop Window Mockup -->
+      <div class="gallery-window">
+        <div class="gallery-window-header">
+          <div class="gallery-window-dots">
+            <span class="gallery-dot close"></span>
+            <span class="gallery-dot min"></span>
+            <span class="gallery-dot max"></span>
+          </div>
+          <div class="gallery-window-title" id="gallery-window-title">YOMU v3.0 [RESONANCE]</div>
+          <div class="gallery-window-meta">
+            <span class="gallery-window-counter" id="gallery-counter">01 / 10</span>
+            <span class="gallery-window-badge">ELECTRON 34 • NATIVE</span>
+          </div>
+        </div>
+        <div class="gallery-viewport" id="gallery-viewport" tabindex="0">
+          <button class="gallery-nav-btn gallery-nav-prev" id="gallery-prev" aria-label="Previous view">‹</button>
+          <img id="gallery-active-img" class="gallery-img" src="./assets/screenshots/01-library.png" alt="Yomu Native Interface">
+          <button class="gallery-nav-btn gallery-nav-next" id="gallery-next" aria-label="Next view">›</button>
+          <button class="gallery-zoom-btn" id="gallery-zoom" title="Ver imagen en tamaño completo" aria-label="Zoom image">⤢</button>
+        </div>
+        <div class="gallery-caption-bar">
+          <div class="gallery-caption-info">
+            <span class="gallery-caption-category" id="gallery-caption-cat">BIBLIOTECA</span>
+            <span class="gallery-caption-text" id="gallery-caption-text">Cargando detalles de la captura...</span>
+          </div>
+          <span class="gallery-caption-meta" id="gallery-caption-meta">1600 x 960 • Desktop Native</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Sync Hub Visualizer -->
+  <section class="section" id="sync-hub">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sync.tag">Sincronización Inteligente</span>
+        <h2 class="section-title" data-i18n="sync.title">Orquestación Tri-Tracker sin Conflictos</h2>
+        <p class="section-subtitle" data-i18n="sync.subtitle">Observa cómo viaja el progreso entre el motor local y los tres servicios en la nube con truncamiento preventivo.</p>
+      </div>
+
+      <div class="sync-hub-card">
+        <div class="sync-hub-top">
+          <button class="btn btn-primary" id="sync-trigger-btn" data-i18n="sync.triggerBtn">Simular Lectura del Cap. 14.5</button>
+          <div class="sync-status-badge" id="sync-status-badge">
+            <span class="badge-dot" style="background:var(--status-emerald)"></span>
+            <span id="sync-status-text" data-i18n="sync.statusIdle">Listo para simular lectura</span>
+          </div>
+        </div>
+
+        <!-- Nodes Pipeline -->
+        <div class="sync-pipeline">
+          <div class="sync-node" id="node-local">
+            <div class="sync-node-icon">📖</div>
+            <div class="sync-node-title" data-i18n="sync.nodeLocal">Motor de Lectura</div>
+            <div class="sync-node-protocol">Local SQLite</div>
+            <div class="sync-node-payload" data-i18n="sync.payloadLocal">Capítulo 14.5 leído</div>
+          </div>
+
+          <div class="sync-node-connector">➔</div>
+
+          <div class="sync-node" id="node-mapping">
+            <div class="sync-node-icon">🗺️</div>
+            <div class="sync-node-title" data-i18n="sync.nodeMapping">Mapping Engine</div>
+            <div class="sync-node-protocol" data-i18n="sync.protoMapping">Normalización MangaBaka</div>
+            <div class="sync-node-payload">mb_id: #999999991</div>
+          </div>
+
+          <div class="sync-node-connector">➔</div>
+
+          <div class="sync-node" id="node-anilist">
+            <div class="sync-node-icon">🅰️</div>
+            <div class="sync-node-title" data-i18n="sync.nodeAniList">AniList</div>
+            <div class="sync-node-protocol">OAuth + GraphQL</div>
+            <div class="sync-node-payload">progress: 14.5 (Decimal OK)</div>
+          </div>
+
+          <div class="sync-node-connector">➔</div>
+
+          <div class="sync-node highlight-truncation" id="node-mal">
+            <div class="sync-node-icon">Ⓜ️</div>
+            <div class="sync-node-title" data-i18n="sync.nodeMAL">MyAnimeList</div>
+            <div class="sync-node-protocol">OAuth 2.0 PKCE S256</div>
+            <div class="sync-node-payload">Math.floor(14.5) -> 14</div>
+          </div>
+
+          <div class="sync-node-connector">➔</div>
+
+          <div class="sync-node highlight-truncation" id="node-mb">
+            <div class="sync-node-icon">🌸</div>
+            <div class="sync-node-title" data-i18n="sync.nodeMB">MangaBaka</div>
+            <div class="sync-node-protocol">v1 REST API</div>
+            <div class="sync-node-payload" data-i18n="sync.payloadMB">progress: 14 (Entero)</div>
+          </div>
+        </div>
+
+        <div class="sync-truncation-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <div>
+            <strong data-i18n="sync.truncationTitle">Truncamiento Preventivo de Enteros (Invariante Arquitectónico):</strong>
+            <span data-i18n="sync.truncationExplainer">MyAnimeList y MangaBaka no admiten capítulos decimales en sus contratos de actualización. Yomu aplica estrictamente Math.floor(ch) antes de despachar las peticiones de red, erradicando los errores 400 Bad Request y garantizando sincronización sin discrepancias falsas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exploration Portal Bento Grid (Home to Subpages) -->
+  <section class="section portal-section" id="portal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="portal.tag">Exploración Técnica</span>
+        <h2 class="section-title" data-i18n="portal.title">Documentación & Arquitectura Profunda</h2>
+      </div>
+
+      <div class="portal-grid">
+        <!-- Card 1: Architecture & ADRs -->
+        <a href="./architecture.html" class="portal-card" style="text-decoration:none;">
+          <div>
+            <div class="portal-card-header">
+              <div class="portal-card-icon">🏛️</div>
+              <h3 class="portal-card-title" data-i18n="portal.archTitle">Arquitectura & Decisiones Técnicas</h3>
+            </div>
+            <p class="portal-card-desc" style="margin-top:14px; margin-bottom:16px;" data-i18n="portal.archDesc">
+              15 subsistemas desacoplados, esquemas DDL duales SQLite, sandbox IPC y 10 registros de decisiones formales.
+            </p>
+            <ul class="portal-card-bullets">
+              <li class="portal-card-bullet">15 Subsistemas Canónicos (Main Process vs. UI vs. Workers)</li>
+              <li class="portal-card-bullet">Esquemas DDL SQLite (mangai_reader.db y yomu_mangabaka.db)</li>
+              <li class="portal-card-bullet">10 Architectural Decision Records (ADRs) documentados</li>
+            </ul>
+          </div>
+          <span class="portal-card-cta" data-i18n="portal.archBtn">Explorar Arquitectura →</span>
+        </a>
+
+        <!-- Card 2: Ecosystem, Benchmark & Roadmap -->
+        <a href="./ecosystem.html" class="portal-card" style="text-decoration:none;">
+          <div>
+            <div class="portal-card-header">
+              <div class="portal-card-icon">🌐</div>
+              <h3 class="portal-card-title" data-i18n="portal.ecoTitle">Ecosistema, Benchmark & Glosario</h3>
+            </div>
+            <p class="portal-card-desc" style="margin-top:14px; margin-bottom:16px;" data-i18n="portal.ecoDesc">
+              Matrices de scrapers en bytecode V8, comparativa objetiva de 12 criterios contra Mihon/Kavita y glosario de 29 términos.
+            </p>
+            <ul class="portal-card-bullets">
+              <li class="portal-card-bullet">Scrapers en Bytecode V8 (MangaDex & MangaNato)</li>
+              <li class="portal-card-bullet">Comparativa Técnica Rigurosa (12 Criterios Objetivos)</li>
+              <li class="portal-card-bullet">Roadmap Evolutivo y Glosario Canónico de 29 Términos</li>
+            </ul>
+          </div>
+          <span class="portal-card-cta" data-i18n="portal.ecoBtn">Ver Ecosistema & Benchmark →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section" style="padding:48px 0; border-top:1px solid var(--border-subtle); background:var(--bg-secondary);">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+        <div style="max-width:540px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <img src="./assets/logo.png" alt="Yomu Logo" style="width:28px; height:28px; border-radius:4px;">
+            <strong style="font-size:1.1rem; letter-spacing:-0.01em;">YOMU (ヨム)</strong>
+            <span class="badge badge-indigo">v3.0.0</span>
+          </div>
+          <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.5;" data-i18n="footer.desc">
+            Lector híbrido de manga y webtoons de alto rendimiento para escritorio. Construido con arquitectura No-Bundler, sandboxing estricto y cero telemetría.
+          </p>
+        </div>
+
+        <div style="text-align:right;">
+          <div style="font-weight:700; font-size:0.9rem; color:var(--text-primary); margin-bottom:4px;" data-i18n="footer.creator">
+            Diseñado y desarrollado por Olivo28
+          </div>
+          <div style="font-size:0.78rem; color:var(--text-muted);" data-i18n="footer.license">
+            Aplicación de escritorio de código cerrado • Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Modular Scripts: Strict Loading Sequence -->
+  <!-- 1. Data Layer -->
+  <script src="./js/data/i18n-locales.js"></script>
+  <script src="./js/data/architecture-data.js"></script>
+  <script src="./js/data/capabilities-data.js"></script>
+  <script src="./js/data/benchmark-data.js"></script>
+  <script src="./js/data/roadmap-data.js"></script>
+  <script src="./js/data/glossary-data.js"></script>
+
+  <!-- 2. Modular Behavior Controllers -->
+  <script src="./js/modules/i18n.js"></script>
+  <script src="./js/modules/readerSimulator.js"></script>
+  <script src="./js/modules/galleryViewer.js"></script>
+  <script src="./js/modules/syncHubSimulator.js"></script>
+  <script src="./js/modules/architectureViewer.js"></script>
+  <script src="./js/modules/capabilitiesViewer.js"></script>
+  <script src="./js/modules/benchmarkViewer.js"></script>
+  <script src="./js/modules/roadmapViewer.js"></script>
+  <script src="./js/modules/glossaryViewer.js"></script>
+
+  <!-- 3. Main App Orchestrator -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

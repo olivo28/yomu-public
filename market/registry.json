@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-09-25",
+  "extensions": [
+    {
+      "id": "mangadex",
+      "name": "MangaDex",
+      "version": "1.1.10",
+      "author": "Yomu Team",
+      "description": {
+        "en": "Official modular scraping extension for MangaDex (Hybrid API) with multi-language updates and authenticated session support.",
+        "es": "Módulo de scraping modular para MangaDex (API Híbrida) con actualizaciones multi-idioma y soporte de sesión autenticada."
+      },
+      "icon": "https://mangadex.org/favicon.svg",
+      "tags": ["official", "hybrid-api", "multilang", "auth"],
+      "official": true,
+      "downloadUrl": "https://raw.githubusercontent.com/olivo28/yomu-public/main/market/modules/mangadex.yomu"
+    },
+    {
+      "id": "manganato",
+      "name": "MangaNato",
+      "version": "1.2.2",
+      "author": "Yomu Team",
+      "description": {
+        "en": "Official modular scraping extension for MangaNato and ChapManganato with fast chapter retrieval and session support.",
+        "es": "Módulo de scraping modular para MangaNato y ChapManganato con obtención rápida de capítulos y soporte de sesión."
+      },
+      "icon": "https://www.manganato.gg/images/favicon-manganato.webp",
+      "tags": ["official", "fast", "webtoon", "auth"],
+      "official": true,
+      "downloadUrl": "https://raw.githubusercontent.com/olivo28/yomu-public/main/market/modules/manganato.yomu"
+    }
+  ]
+}

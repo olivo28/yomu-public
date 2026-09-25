@@ -1,0 +1,174 @@
+/* ==========================================================================
+   YOMU (ヨム) — Technical Roadmap Component Styles
+   ========================================================================== */
+
+.roadmap-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.roadmap-filter-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.roadmap-filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.roadmap-filter-btn.active {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* Vertical Timeline */
+.roadmap-timeline {
+  position: relative;
+  max-width: 840px;
+  margin: 0 auto;
+  padding-left: 32px;
+}
+
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 2px;
+  background: var(--border-subtle);
+}
+
+.roadmap-milestone {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.roadmap-milestone::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: -32px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-medium);
+  z-index: 2;
+  transition: border-color var(--transition-fast);
+}
+
+.roadmap-milestone.current::before {
+  border-color: var(--status-emerald);
+  background: var(--status-emerald);
+  box-shadow: 0 0 10px var(--status-emerald);
+}
+
+.roadmap-milestone.in-progress::before {
+  border-color: var(--status-amber);
+  background: var(--status-amber);
+  box-shadow: 0 0 8px var(--status-amber);
+}
+
+.roadmap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.roadmap-card:hover {
+  border-color: var(--border-medium);
+  transform: translateX(4px);
+}
+
+.roadmap-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.roadmap-version-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roadmap-version {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.roadmap-codename {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.roadmap-timeframe {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.roadmap-summary {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.roadmap-deliverables {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 16px;
+}
+
+.roadmap-deliverables li {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.roadmap-deliverables li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--status-emerald);
+  font-size: 0.76rem;
+}
+
+.roadmap-milestone.planned .roadmap-deliverables li::before {
+  content: '○';
+  color: var(--text-muted);
+}

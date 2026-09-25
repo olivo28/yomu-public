@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOMU (ヨム) — Architecture & Engineering Specifications</title>
+  <meta name="description" content="Especificación técnica de la arquitectura de Yomu: 15 subsistemas canónicos, esquemas SQLite duales, contratos IPC y 10 registros formales de decisiones de ingeniería (ADRs).">
+  <meta name="keywords" content="Yomu architecture, electron architecture, sqlite wal, sharp image pipeline, adr software architecture, v8 bytecode scraping">
+  <meta name="author" content="Olivo28">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YOMU (ヨム) — Architecture & Engineering Specifications">
+  <meta property="og:description" content="Decoupled three-tier architecture: Node.js Main Process, Vanilla JS UI, and mimetic Chromium workers.">
+  <meta property="og:image" content="./assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular CSS Stylesheets -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components/quick-nav.css">
+  <link rel="stylesheet" href="./css/components/architecture-cards.css">
+  <link rel="stylesheet" href="./css/components/capabilities-matrix.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Yomu Logo" class="nav-logo">
+        <span data-i18n="nav.brand">YOMU</span>
+        <span class="nav-brand-tag">v3.0.0 [RESONANCE]</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="./architecture.html" class="nav-link active" data-i18n="nav.architecture">Arquitectura</a></li>
+        <li><a href="./ecosystem.html" class="nav-link" data-i18n="nav.ecosystem">Ecosistema & Datos</a></li>
+        <li><a href="./glossary.html" class="nav-link" data-i18n="nav.glossary">Glosario (29)</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating Quick-Navigation Rail (Left Side Dock) -->
+  <aside class="quick-nav-dock" aria-label="Quick navigation rail">
+    <div class="quick-nav-header" data-i18n="quicknav.header">Secciones</div>
+    <a href="#subsystems" class="quick-nav-item active" data-nav-tooltip="15 Subsistemas">
+      <span class="quick-nav-icon">📑</span>
+      <span class="quick-nav-label" data-i18n="quicknav.subsystems">15 Subsistemas</span>
+    </a>
+    <a href="#whys" class="quick-nav-item" data-nav-tooltip="10 ADRs">
+      <span class="quick-nav-icon">⚙️</span>
+      <span class="quick-nav-label" data-i18n="quicknav.adrs">10 ADRs</span>
+    </a>
+  </aside>
+
+  <!-- Sub-Page Hero Header -->
+  <header class="subpage-hero">
+    <div class="container">
+      <div class="badge badge-indigo">
+        <span class="badge-dot"></span>
+        <span data-i18n="arch.pageTag">Arquitectura & Especificación Interna</span>
+      </div>
+
+      <h1 class="hero-title" style="font-size:2.4rem; margin-top:16px; margin-bottom:12px;" data-i18n="arch.pageTitle">
+        Arquitectura Desacoplada y Decisiones de Ingeniería
+      </h1>
+
+      <p class="hero-subtitle" style="max-width:760px; margin:0 auto;" data-i18n="arch.pageSubtitle">
+        Diseño de tres capas: Proceso Principal Node.js, UI en Vanilla JS y Workers Chromium miméticos aislados.
+      </p>
+
+      <div class="subpage-nav-bar">
+        <a href="#subsystems" class="subpage-nav-pill active">
+          <span data-i18n="arch.tabSubsystems">Subsistemas (15 Fichas)</span>
+        </a>
+        <a href="#whys" class="subpage-nav-pill">
+          <span data-i18n="whys.title">10 Decisiones Arquitectónicas (ADRs)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: Architecture Explorer (15 Subsystems, DDL & IPC) -->
+  <section class="section" id="subsystems" style="padding-top:20px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="arch.tag">Ingeniería Interna</span>
+        <h2 class="section-title" data-i18n="arch.title">Especificación de Subsistemas y Datos</h2>
+        <p class="section-subtitle" data-i18n="arch.subtitle">Consulta las fichas canónicas de 15 subsistemas, esquemas DDL dual SQLite y el contrato IPC de 31 canales autorizados.</p>
+      </div>
+
+      <div class="arch-explorer-container">
+        <!-- Tabs -->
+        <div class="arch-tabs">
+          <button class="arch-tab-btn active" data-arch-tab="subsystems" data-i18n="arch.tabSubsystems">Subsistemas (15 Fichas)</button>
+          <button class="arch-tab-btn" data-arch-tab="database" data-i18n="arch.tabDatabase">Esquemas DDL SQLite</button>
+          <button class="arch-tab-btn" data-arch-tab="ipc" data-i18n="arch.tabIpc">Contratos IPC (preload.js)</button>
+        </div>
+
+        <!-- Subsystems Pane -->
+        <div class="arch-grid" id="arch-subsystems-pane">
+          <div class="arch-sidebar" id="arch-subsystem-nav">
+            <!-- Populated by architectureViewer.js -->
+          </div>
+          <div class="arch-detail-pane" id="arch-detail-content">
+            <!-- Populated by architectureViewer.js -->
+          </div>
+        </div>
+
+        <!-- Database DDL Pane -->
+        <div class="ddl-pane" id="arch-database-pane" style="display:none;">
+          <!-- Populated by architectureViewer.js -->
+        </div>
+
+        <!-- IPC Pane -->
+        <div class="ipc-pane" id="arch-ipc-pane" style="display:none;">
+          <!-- Populated by architectureViewer.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Engineering Decisions (10 ADRs) -->
+  <section class="section" id="whys">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="whys.tag">Decisiones de Ingeniería</span>
+        <h2 class="section-title" data-i18n="whys.title">10 Decisiones Arquitectónicas de Ingeniería (ADRs)</h2>
+        <p class="section-subtitle" data-i18n="whys.subtitle">Rigor técnico y justificación de los pilares que hacen a Yomu inmune a fugas de VRAM y bloqueos antibot.</p>
+      </div>
+
+      <!-- ADR Filter Bar -->
+      <div class="adr-filter-bar">
+        <button class="adr-filter-btn active" data-adr-filter="all" data-i18n="whys.filterAll">Todas las Decisiones (10 ADRs)</button>
+        <button class="adr-filter-btn" data-adr-filter="reader" data-i18n="whys.filterReader">Motor de Lectura (5 ADRs)</button>
+        <button class="adr-filter-btn" data-adr-filter="worker" data-i18n="whys.filterWorkers">Workers Chromium (5 ADRs)</button>
+      </div>
+
+      <!-- The 10 ADR Cards Grid -->
+      <div class="adr-grid" id="adr-grid">
+        <!-- Populated by capabilitiesViewer.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Footer -->
+  <footer class="section" style="padding:48px 0; border-top:1px solid var(--border-subtle); background:var(--bg-secondary);">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+        <div style="max-width:540px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <img src="./assets/logo.png" alt="Yomu Logo" style="width:28px; height:28px; border-radius:4px;">
+            <strong style="font-size:1.1rem; letter-spacing:-0.01em;">YOMU (ヨム)</strong>
+            <span class="badge badge-indigo">v3.0.0</span>
+          </div>
+          <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.5;" data-i18n="footer.desc">
+            Lector híbrido de manga y webtoons de alto rendimiento para escritorio. Construido con arquitectura No-Bundler, sandboxing estricto y cero telemetría.
+          </p>
+        </div>
+
+        <div style="text-align:right;">
+          <div style="font-weight:700; font-size:0.9rem; color:var(--text-primary); margin-bottom:4px;" data-i18n="footer.creator">
+            Diseñado y desarrollado por Olivo28
+          </div>
+          <div style="font-size:0.78rem; color:var(--text-muted);" data-i18n="footer.license">
+            Aplicación de escritorio de código cerrado • Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Modular Scripts: Strict Loading Sequence -->
+  <!-- 1. Data Layer -->
+  <script src="./js/data/i18n-locales.js"></script>
+  <script src="./js/data/architecture-data.js"></script>
+  <script src="./js/data/capabilities-data.js"></script>
+  <script src="./js/data/benchmark-data.js"></script>
+  <script src="./js/data/roadmap-data.js"></script>
+  <script src="./js/data/glossary-data.js"></script>
+
+  <!-- 2. Modular Behavior Controllers -->
+  <script src="./js/modules/i18n.js"></script>
+  <script src="./js/modules/readerSimulator.js"></script>
+  <script src="./js/modules/galleryViewer.js"></script>
+  <script src="./js/modules/syncHubSimulator.js"></script>
+  <script src="./js/modules/architectureViewer.js"></script>
+  <script src="./js/modules/capabilitiesViewer.js"></script>
+  <script src="./js/modules/benchmarkViewer.js"></script>
+  <script src="./js/modules/roadmapViewer.js"></script>
+  <script src="./js/modules/glossaryViewer.js"></script>
+
+  <!-- 3. Main App Orchestrator -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* ==========================================================================
+   YOMU (ヨム) — Architectural Glossary Modal Styles
+   Interactive 28-Term Inspector Dialog
+   ========================================================================== */
+
+.glossary-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 8, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.glossary-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.glossary-modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 780px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.96);
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+}
+
+.glossary-modal-overlay.open .glossary-modal-content {
+  transform: scale(1);
+}
+
+/* Modal Header */
+.glossary-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-secondary);
+}
+
+.glossary-modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.glossary-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.glossary-modal-close-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Search Bar */
+.glossary-search-wrapper {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-tertiary);
+}
+
+.glossary-search-input {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.glossary-search-input:focus {
+  border-color: var(--accent-primary);
+}
+
+/* List of Terms */
+.glossary-list {
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.glossary-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  transition: border-color var(--transition-fast);
+}
+
+.glossary-item:hover {
+  border-color: var(--border-medium);
+}
+
+.glossary-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.glossary-term {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.glossary-cat-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.glossary-def {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.glossary-no-results {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}

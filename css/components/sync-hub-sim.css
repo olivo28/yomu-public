@@ -1,0 +1,172 @@
+/* ==========================================================================
+   YOMU (ヨム) — Sync Hub Simulator Component Styles
+   ========================================================================== */
+
+.sync-hub-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.sync-hub-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sync-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.sync-status-badge.running {
+  border-color: var(--status-amber);
+  color: var(--status-amber);
+  background: var(--status-amber-bg);
+}
+
+.sync-status-badge.success {
+  border-color: var(--status-emerald);
+  color: var(--status-emerald);
+  background: var(--status-emerald-bg);
+}
+
+/* Horizontal Flow Pipeline */
+.sync-pipeline {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.sync-node {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.sync-node.active {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.sync-node.success {
+  border-color: var(--status-emerald);
+}
+
+.sync-node-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: var(--accent-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.sync-node.success .sync-node-icon {
+  color: var(--status-emerald);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.sync-node-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.sync-node-protocol {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sync-node-payload {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.sync-node.highlight-truncation .sync-node-payload {
+  color: var(--accent-cyan);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* Connectors */
+.sync-node-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border-medium);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin: 0 4px;
+  transition: color var(--transition-fast);
+}
+
+.sync-node-connector.active {
+  color: var(--accent-primary);
+  animation: pulse-connector 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse-connector {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.6; }
+}
+
+/* Floor Truncation Explainer Box */
+.sync-truncation-box {
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+.sync-truncation-box code {
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}

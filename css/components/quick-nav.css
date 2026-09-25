@@ -1,0 +1,179 @@
+/* ==========================================================================
+   YOMU (ヨム) — Floating Quick-Navigation Rail Component
+   Left-docked quick jump navigation with reactive scroll-spy
+   ========================================================================== */
+
+.quick-nav-dock {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: rgba(13, 16, 26, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 8px 6px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 220px;
+  user-select: none;
+  animation: fadeInDock 0.4s ease-out;
+}
+
+@keyframes fadeInDock {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + 10px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+.quick-nav-header {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 6px 10px 4px 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-nav-header::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-primary);
+}
+
+.quick-nav-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 2px 6px;
+}
+
+.quick-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 11px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.quick-nav-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.quick-nav-label {
+  transition: color var(--transition-fast);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quick-nav-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+.quick-nav-item:hover .quick-nav-icon {
+  transform: scale(1.15);
+}
+
+.quick-nav-item.active {
+  background: rgba(99, 102, 241, 0.16);
+  color: #818cf8;
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+}
+
+.quick-nav-item.active .quick-nav-icon {
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.8));
+}
+
+/* Tablet & Compact Desktop: Collapse to icon-only dock */
+@media (max-width: 1360px) and (min-width: 901px) {
+  .quick-nav-dock {
+    left: 12px;
+    padding: 6px;
+    max-width: none;
+  }
+
+  .quick-nav-header {
+    display: none;
+  }
+
+  .quick-nav-divider {
+    display: none;
+  }
+
+  .quick-nav-label {
+    display: none;
+  }
+
+  .quick-nav-item {
+    padding: 9px;
+    justify-content: center;
+  }
+
+  /* Tooltip on hover */
+  .quick-nav-item::after {
+    content: attr(data-nav-tooltip);
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    border: 1px solid var(--border-medium);
+    box-shadow: var(--shadow-md);
+  }
+
+  .quick-nav-item:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(2px);
+  }
+}
+
+/* Mobile Screens: Hide floating dock to prevent viewport collision */
+@media (max-width: 900px) {
+  .quick-nav-dock {
+    display: none !important;
+  }
+}

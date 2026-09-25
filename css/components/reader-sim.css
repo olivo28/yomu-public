@@ -1,0 +1,408 @@
+/* ==========================================================================
+   YOMU (ヨム) — Authentic Reader Simulator Styles
+   Pixel-Perfect Replica of Real Yomu Desktop Reader (reader.html & reader.css)
+   ========================================================================== */
+
+/* Outer Simulator Window Frame */
+.reader-sim-container {
+  background: #070707;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.9);
+  position: relative;
+  margin-top: 24px;
+}
+
+/* Window Header / Titlebar */
+.reader-sim-header {
+  height: 36px;
+  background: #111216;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.reader-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.reader-window-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.reader-window-dot:nth-child(1) { background: #ff5f56; }
+.reader-window-dot:nth-child(2) { background: #ffbd2e; }
+.reader-window-dot:nth-child(3) { background: #27c93f; }
+
+.reader-window-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Reader Viewport Area */
+.reader-sim-viewport {
+  position: relative;
+  height: 600px;
+  background-color: #070707 !important;
+  overflow: hidden;
+}
+
+/* Workspace */
+.reader-workspace {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  position: relative;
+  user-select: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.reader-workspace::-webkit-scrollbar {
+  display: none;
+}
+
+/* Webtoon Layout Flow */
+.reader-webtoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 60px;
+  gap: 0;
+  transition: gap var(--transition-fast);
+}
+
+.reader-webtoon .reader-image {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transform: translateZ(0);
+  will-change: transform, filter, opacity;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Paged Layout Flow (Single & Double Spread) */
+.reader-paged {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow-y: hidden !important;
+  padding-top: 50px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.reader-paged .reader-image {
+  height: 88%;
+  max-height: 510px;
+  width: auto;
+  max-width: 48%;
+  object-fit: contain;
+  margin: 0 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+.reader-paged.single .reader-image {
+  max-width: 90%;
+}
+
+/* GPU Shader Filters (Matched with src/renderer/css/views/reader.css) */
+.reader-image.filter-smooth { filter: blur(0.35px); }
+.reader-image.filter-crisp { image-rendering: pixelated; }
+.reader-image.filter-high-contrast { filter: contrast(1.3) brightness(1.05); }
+.reader-image.filter-invert { filter: invert(1); }
+.reader-image.filter-sepia { filter: sepia(0.6); }
+.reader-image.filter-sharpen { filter: contrast(1.2) brightness(1.05); }
+
+/* Floating Top HUD (Matched with reader.html lines 28-40) */
+.reader-hud-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 15, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 50;
+  transition: all 0.25s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.reader-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reader-back-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.reader-back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.reader-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.reader-chapter-select {
+  background: rgba(30, 30, 35, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-sans);
+}
+
+.reader-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Icon Buttons in HUD */
+.reader-icon-btn {
+  width: 32px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  color: #c0c2cd;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.reader-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.reader-icon-btn.btn-active {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.reader-parity-btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.reader-parity-btn.active {
+  background: var(--accent-cyan) !important;
+  color: #000000 !important;
+  border-color: var(--accent-cyan) !important;
+}
+
+/* Real Floating Side Menu for Filters (0.15 resting opacity) */
+.reader-side-menu {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 30;
+  opacity: 0.18;
+  transition: opacity 0.25s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.reader-side-menu:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.02);
+}
+
+.side-menu-header {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  padding-left: 6px;
+  letter-spacing: 0.5px;
+}
+
+.side-menu-item {
+  min-width: 65px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #c0c2cd;
+  transition: all 0.15s;
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  white-space: nowrap;
+}
+
+.side-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.side-menu-item.active {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+/* Floating Option Panel (Settings ⚙️) */
+.reader-options-panel {
+  position: absolute;
+  right: 20px;
+  top: 52px;
+  background: rgba(25, 25, 28, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 15px;
+  min-width: 220px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.reader-options-panel.open {
+  display: flex;
+}
+
+.reader-options-header {
+  font-size: 12px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 6px;
+  color: #ffffff;
+}
+
+.reader-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reader-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #cccccc;
+}
+
+.reader-cascade-slider {
+  width: 100%;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+/* Floating Page Indicator Pill */
+.reader-page-indicator {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  z-index: 40;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Parity Blank Page Placeholder */
+.reader-parity-blank {
+  width: 360px;
+  height: 510px;
+  background: #0f1015;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Sleek Telemetry Status Bar Under Simulator Container */
+.reader-telemetry-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 14px 20px;
+  background: rgba(14, 15, 18, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.reader-telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}

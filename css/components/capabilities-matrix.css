@@ -1,0 +1,398 @@
+/* ==========================================================================
+   YOMU (ヨム) — Capabilities & Engineering Matrices CSS Component
+   Scraper & Tracker Matrices, Local Containers, 5 Whys & BrowserWorkers
+   ========================================================================== */
+
+/* Capabilities Matrix Card Wrapper */
+.matrix-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 32px;
+}
+
+.matrix-header {
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.matrix-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matrix-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1280px) {
+  .matrix-table-wrapper {
+    overflow-x: visible;
+  }
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.matrix-table th {
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.matrix-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: middle;
+  line-height: 1.45;
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.matrix-source-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matrix-badge-type {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  margin-top: 4px;
+}
+
+/* Elegant Status Chips (Erradicates bloated giant balloon pills) */
+.matrix-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.matrix-status-chip.success {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--status-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.matrix-status-chip.warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--status-amber);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.matrix-status-chip .chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.matrix-status-chip.success .chip-dot {
+  background: var(--status-emerald);
+  box-shadow: 0 0 5px var(--status-emerald);
+}
+
+.matrix-status-chip.warning .chip-dot {
+  background: var(--status-amber);
+  box-shadow: 0 0 5px var(--status-amber);
+}
+
+.matrix-table code {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Local Containers Grid (Expansive 4-Column Spatial Deck) */
+.containers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .containers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .containers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container-format-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.container-format-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.container-format-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.container-format-badge {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.container-format-type {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.container-format-streaming {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.container-format-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-secondary);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+/* Architectural Decision Records (ADRs) Styling */
+.adr-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.adr-filter-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.adr-filter-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.adr-filter-btn.active {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.adr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 960px) {
+  .adr-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.adr-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all var(--transition-fast);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.adr-card:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.adr-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.adr-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adr-id-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent-primary);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.adr-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.adr-metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--status-emerald);
+  font-weight: 700;
+}
+
+.adr-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.adr-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adr-panel {
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.challenge-panel {
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-left: 3px solid var(--status-amber);
+}
+
+.decision-panel {
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.18);
+  border-left: 3px solid var(--accent-cyan);
+}
+
+.adr-panel-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.challenge-panel .adr-panel-label {
+  color: var(--status-amber);
+}
+
+.decision-panel .adr-panel-label {
+  color: var(--accent-cyan);
+}
+
+.adr-panel-text {
+  color: var(--text-secondary);
+  margin: 0;
+}
