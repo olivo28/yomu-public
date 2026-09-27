@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOMU (ヨム) — Manual de Usuario Oficial</title>
+  <meta name="description" content="Guía completa paso a paso para dominar Yomu: gestión de biblioteca local, modos de lectura a 60 FPS, sincronización con AniList/MAL y módulos de scraping.">
+  <meta name="author" content="Olivo28">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YOMU (ヨム) — Manual de Usuario Oficial">
+  <meta property="og:description" content="Aprende a dominar tu biblioteca de manga y webtoons con el motor de escritorio más potente.">
+  <meta property="og:image" content="./assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components/quick-nav.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <style>
+    .manual-hero {
+      padding: 6.5rem 0 3.5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 65%);
+    }
+    .manual-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+    }
+    .manual-section {
+      background: var(--bg-card, #161b22);
+      border: 1px solid var(--border-color, #30363d);
+      border-radius: 16px;
+      padding: 2.4rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+    .manual-section h2 {
+      font-size: 1.65rem;
+      color: #38bdf8;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.8rem;
+    }
+    .manual-section h3 {
+      font-size: 1.22rem;
+      color: #f1f5f9;
+      margin-top: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .manual-section p, .manual-section li {
+      color: #94a3b8;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+    .manual-section ul, .manual-section ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .manual-section li {
+      margin-bottom: 0.6rem;
+    }
+    .figure-container {
+      margin: 1.8rem 0;
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .figure-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .figure-caption {
+      padding: 0.85rem 1.2rem;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      background: rgba(15, 23, 42, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .figure-caption strong {
+      color: #38bdf8;
+    }
+    .keyboard-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #38bdf8;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .code-tree {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      line-height: 1.5;
+    }
+    .tip-box {
+      background: rgba(56, 189, 248, 0.07);
+      border-left: 4px solid #38bdf8;
+      border-radius: 0 10px 10px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.4rem 0;
+      color: #cbd5e1;
+    }
+    .tip-box strong {
+      color: #38bdf8;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 1.4rem 0;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .manual-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .manual-table th, .manual-table td {
+      padding: 0.95rem 1.1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.93rem;
+    }
+    .manual-table th {
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.03);
+      font-weight: 600;
+    }
+    .manual-table td {
+      color: #94a3b8;
+    }
+    .manual-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo.png" alt="Yomu Logo" class="nav-logo">
+        <span data-i18n="nav.brand">YOMU</span>
+        <span class="nav-brand-tag">v3.0.0 [RESONANCE]</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="./manual.html" class="nav-link active" data-i18n="nav.manual">Manual de Uso</a></li>
+        <li><a href="./architecture.html" class="nav-link" data-i18n="nav.architecture">Arquitectura</a></li>
+        <li><a href="./ecosystem.html" class="nav-link" data-i18n="nav.ecosystem">Ecosistema & Datos</a></li>
+        <li><a href="./glossary.html" class="nav-link" data-i18n="nav.glossary">Glosario (29)</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="manual-hero">
+    <div class="container">
+      <div class="hero-status-pill" style="margin-bottom: 1.2rem;">
+        <span class="hero-status-dot"></span>
+        <span data-i18n="manual.tag">GUÍA OFICIAL DEL USUARIO • YOMU v3.0.0</span>
+      </div>
+      <h1 class="hero-title" style="font-size: 2.7rem;" data-i18n="manual.title">Manual de Usuario de Yomu</h1>
+      <p class="hero-subtitle" style="max-width: 700px; margin: 0.6rem auto 0;" data-i18n="manual.subtitle">
+        Guía ilustrada paso a paso para dominar tu biblioteca de manga, modos de lectura fluidos a 60 FPS, sincronización con AniList/MAL y extensiones modulares.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="manual-content">
+
+    <!-- Sección 1 -->
+    <article class="manual-section" id="primeros-pasos">
+      <h2><span>🚀</span> <span data-i18n="manual.sec1.title">1. Primeros Pasos e Instalación</span></h2>
+      <p data-i18n="manual.sec1.desc">
+        Yomu es un motor de lectura de escritorio nativo para Windows y Linux, diseñado bajo los principios de 100% privacidad, cero telemetría externa y arquitectura offline-first con SQLite WAL dual.
+      </p>
+      
+      <h3 data-i18n="manual.sec1.sub1">Requisitos del Sistema</h3>
+      <ul>
+        <li data-i18n="manual.sec1.req1">Windows 10 u 11 (64-bit) o distribuciones Linux modernas (AppImage/Debian/Arch/Steam Deck).</li>
+        <li data-i18n="manual.sec1.req2">4 GB de memoria RAM mínima (el consumo de Yomu en reposo es inferior a 180 MB).</li>
+        <li data-i18n="manual.sec1.req3">Aceleración por GPU recomendada para escalado de imágenes en tiempo real.</li>
+      </ul>
+
+      <div class="tip-box" data-i18n="manual.sec1.tip">
+        💡 Almacén Local Seguro: Todos tus datos, historiales y marcadores se guardan de forma aislada en tu equipo (AppData o ~/.config/Yomu). Al actualizar de versión nunca perderás tus datos.
+      </div>
+    </article>
+
+    <!-- Sección 2 -->
+    <article class="manual-section" id="biblioteca">
+      <h2><span>📚</span> <span data-i18n="manual.sec2.title">2. Gestión de Biblioteca y Catálogo Global</span></h2>
+      
+      <h3 data-i18n="manual.sec2.sub1">Añadir Carpetas Locales (.cbz, .zip, .pdf)</h3>
+      <ol>
+        <li data-i18n="manual.sec2.step1">Abre Yomu y dirígete a la pestaña Biblioteca en el menú lateral izquierdo.</li>
+        <li data-i18n="manual.sec2.step2">Haz clic en Configurar Carpetas y selecciona las rutas de tus discos donde tienes tus mangas o cómics.</li>
+        <li data-i18n="manual.sec2.step3">Pulsa Escanear Biblioteca. El motor Sharp indexará las portadas y capítulos a máxima velocidad sin congelar la interfaz.</li>
+      </ol>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/01-library.png" alt="Biblioteca Principal de Yomu" loading="lazy">
+        <div class="figure-caption">
+          <span>🖼️</span> <strong>Figura 1:</strong> Interfaz de cuadrícula fluida de la Biblioteca con filtrado instantáneo por categoría.
+        </div>
+      </div>
+
+      <h3 data-i18n="manual.sec2.sub2">Estructura de Carpetas Recomendada</h3>
+      <div class="code-tree">
+Mi Colección Manga/
+└── Frieren/
+    ├── Portada.jpg  (Opcional para fijar portada)
+    ├── Capítulo 01.cbz
+    ├── Capítulo 02.zip
+    └── Capítulo 03/
+        ├── 01.png
+        └── 02.png
+      </div>
+
+      <h3 data-i18n="manual.sec2.sub3">Catálogo Maestro Online y Seguimiento</h3>
+      <p data-i18n="manual.sec2.catalogDesc">
+        Explora más de 80,000 series desde el catálogo global de MangaBaka o mediante búsqueda unificada. Desde la ficha de la serie, pulsa Seguir para anclarla a tu biblioteca y recibir nuevos capítulos en el feed de Actualizaciones.
+      </p>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/02-global-catalog.png" alt="Catálogo Global MangaBaka" loading="lazy">
+        <div class="figure-caption">
+          <span>🌐</span> <strong>Figura 2:</strong> Catálogo Maestro sincronizado con metadatos oficiales, sinopsis y enlaces multifuente.
+        </div>
+      </div>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/05-details-canonical.png" alt="Ficha Canónica de Serie" loading="lazy">
+        <div class="figure-caption">
+          <span>📖</span> <strong>Figura 3:</strong> Vista de ficha con selector de idiomas, capítulos de múltiples scans y mapeos canónicos.
+        </div>
+      </div>
+    </article>
+
+    <!-- Sección 3 -->
+    <article class="manual-section" id="lector">
+      <h2><span>🎨</span> <span data-i18n="manual.sec3.title">3. El Visor de Lectura (Renderizado Continuo Fluido)</span></h2>
+      <p data-i18n="manual.sec3.desc">
+        El lector de Yomu utiliza virtualización inteligente de viewport con buffer de reciclaje de 1,200px para garantizar 0 fugas de memoria VRAM incluso en webtoons infinitos.
+      </p>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/08-reader-engine.png" alt="Motor de Lectura de Yomu" loading="lazy">
+        <div class="figure-caption">
+          <span>⚡</span> <strong>Figura 4:</strong> Visor HUD de alta inmersión con control de zoom, orientación, ajuste de brillo y paso de página.
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="manual-table">
+          <thead>
+            <tr>
+              <th data-i18n="manual.sec3.thMode">Modo</th>
+              <th data-i18n="manual.sec3.thIdeal">Ideal Para</th>
+              <th data-i18n="manual.sec3.thDesc">Comportamiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n="manual.sec3.m1">Cascada Continua (Webtoon)</strong></td>
+              <td data-i18n="manual.sec3.m1Ideal">Manhwas y Webtoons verticales</td>
+              <td data-i18n="manual.sec3.m1Desc">Desplazamiento vertical infinito con cosido perfecto de imágenes y precarga predictiva.</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="manual.sec3.m2">Página Simple</strong></td>
+              <td data-i18n="manual.sec3.m2Ideal">Cómics Occidentales / Libros</td>
+              <td data-i18n="manual.sec3.m2Desc">Muestra una sola página centrada adaptada al ancho o alto de la pantalla.</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="manual.sec3.m3">Doble Página (Manga)</strong></td>
+              <td data-i18n="manual.sec3.m3Ideal">Mangas Japoneses tradicionales</td>
+              <td data-i18n="manual.sec3.m3Desc">Muestra páginas pares e impares lado a lado con soporte de lectura de derecha a izquierda y offset de portada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 data-i18n="manual.sec3.shortcutsTitle">Atajos de Teclado Esenciales</h3>
+      <ul>
+        <li><span class="keyboard-badge">D</span> / <span class="keyboard-badge">Flecha Derecha</span> : <span data-i18n="manual.sec3.kNext">Página siguiente / Avance continuo</span></li>
+        <li><span class="keyboard-badge">A</span> / <span class="keyboard-badge">Flecha Izquierda</span> : <span data-i18n="manual.sec3.kPrev">Página anterior / Retroceso</span></li>
+        <li><span class="keyboard-badge">Espacio</span> / <span class="keyboard-badge">Rueda Ratón</span> : <span data-i18n="manual.sec3.kScroll">Desplazamiento suave en modo Webtoon</span></li>
+        <li><span class="keyboard-badge">F</span> o <span class="keyboard-badge">F11</span> : <span data-i18n="manual.sec3.kFull">Alternar Pantalla Completa (Full Screen)</span></li>
+        <li><span class="keyboard-badge">M</span> : <span data-i18n="manual.sec3.kHud">Abrir o cerrar el menú flotante (HUD) de opciones</span></li>
+        <li><span class="keyboard-badge">Esc</span> : <span data-i18n="manual.sec3.kEsc">Cerrar lector y regresar a la biblioteca</span></li>
+      </ul>
+    </article>
+
+    <!-- Sección 4 -->
+    <article class="manual-section" id="sincronizacion">
+      <h2><span>☁️</span> <span data-i18n="manual.sec4.title">4. Sincronización Tri-Tracker en la Nube</span></h2>
+      <p data-i18n="manual.sec4.desc">
+        Sincroniza automáticamente tu lista de lectura y capítulos completados con las 3 plataformas principales sin tocar el navegador:
+      </p>
+
+      <ul>
+        <li data-i18n="manual.sec4.t1">AniList: Conexión OAuth instantánea con token de seguridad.</li>
+        <li data-i18n="manual.sec4.t2">MyAnimeList (MAL): Autenticación moderna mediante PKCE S256 con auto-refresco de tokens.</li>
+        <li data-i18n="manual.sec4.t3">MangaBaka: Sincronización bidireccional de catálogo e historial.</li>
+      </ul>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/10-sync-hub.png" alt="Sync Hub de Yomu" loading="lazy">
+        <div class="figure-caption">
+          <span>🔄</span> <strong>Figura 5:</strong> Centro de sincronización unificado que compara discrepancias de capítulos entre tus cuentas en la nube y tu disco local.
+        </div>
+      </div>
+
+      <div class="tip-box" data-i18n="manual.sec4.syncTip">
+        ⚡ Detección de Progreso Automática: Al leer un capítulo y superar el 80% del contenido, Yomu actualiza automáticamente tus cuentas en segundo plano. Si estás sin conexión, encola los cambios y los sincroniza al volver a tener internet.
+      </div>
+    </article>
+
+    <!-- Sección 5 -->
+    <article class="manual-section" id="modulos">
+      <h2><span>🧩</span> <span data-i18n="manual.sec5.title">5. Extensiones Modulares (.yomu) y Scrapers Sigilosos</span></h2>
+      <p data-i18n="manual.sec5.desc">
+        Yomu cuenta con una arquitectura de módulos aislados (.yomu) compilados en V8 Bytecode nativo para máxima velocidad y seguridad:
+      </p>
+      
+      <ul>
+        <li data-i18n="manual.sec5.e1">Instalación Plug & Play: Arrastra cualquier archivo .yomu a la ventana de la aplicación o cárgalo desde Configuración > Módulos.</li>
+        <li data-i18n="manual.sec5.e2">Identidad Canónica & Anti-Bloqueo: Peticiones identificadas oficialmente respetando las directrices de CDN y @Home de MangaDex y otros servidores.</li>
+        <li data-i18n="manual.sec5.e3">Mantenimiento Independiente: Si una fuente online cambia su web, solo se actualiza su archivo .yomu sin necesidad de reinstalar Yomu.</li>
+      </ul>
+
+      <div class="figure-container">
+        <img src="./assets/screenshots/09-options-modules.png" alt="Gestor de Módulos .yomu" loading="lazy">
+        <div class="figure-caption">
+          <span>🧩</span> <strong>Figura 6:</strong> Gestor de módulos y scrapers compilados con switch de activación individual y control de cookies.
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); color: #64748b; font-size: 0.9rem;">
+    <p data-i18n="footer.creator">Diseñado y desarrollado por Olivo28</p>
+    <p style="margin-top: 0.3rem;" data-i18n="footer.license">Aplicación de escritorio de código cerrado • Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts: Strict Loading Sequence for i18n & Navigation -->
+  <script src="./js/data/i18n-locales.js"></script>
+  <script src="./js/modules/i18n.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
