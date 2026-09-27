@@ -200,7 +200,7 @@ window.YOMU_LOCALES = {
     "nav.manual": "Manual de Uso",
     "manual.tag": "GUÍA OFICIAL DEL USUARIO • YOMU v3.0.0",
     "manual.title": "Manual de Usuario de Yomu",
-    "manual.subtitle": "Guía ilustrada paso a paso para dominar tu biblioteca de manga, modos de lectura fluidos a 60 FPS, sincronización con AniList/MAL y extensiones modulares.",
+    "manual.subtitle": "Guía ilustrada paso a paso para dominar tu biblioteca de manga, modos de lectura fluidos e inmersivos, sincronización con AniList/MAL y extensiones modulares.",
     
     "manual.sec1.title": "1. Primeros Pasos e Instalación",
     "manual.sec1.desc": "Yomu es un motor de lectura de escritorio nativo para Windows y Linux, diseñado bajo los principios de 100% privacidad, cero telemetría externa y arquitectura offline-first con SQLite WAL dual.",
@@ -456,7 +456,7 @@ window.YOMU_LOCALES = {
     "nav.manual": "User Manual",
     "manual.tag": "OFFICIAL USER MANUAL • YOMU v3.0.0",
     "manual.title": "Yomu Official User Manual",
-    "manual.subtitle": "Illustrated step-by-step guide to master your local manga library, smooth 60 FPS reading modes, AniList/MAL cloud sync, and modular extensions.",
+    "manual.subtitle": "Illustrated step-by-step guide to master your local manga library, smooth and immersive reading modes, AniList/MAL cloud sync, and modular extensions.",
     
     "manual.sec1.title": "1. Getting Started & Installation",
     "manual.sec1.desc": "Yomu is a native desktop manga engine for Windows and Linux built around strict privacy, zero external telemetry, and an offline-first dual SQLite WAL architecture.",
