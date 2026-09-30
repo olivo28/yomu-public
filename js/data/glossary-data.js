@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Architectural Glossary Data (Bilingual ES/EN)
-// 29 Canonical Technical Terms & System Invariants (Master Description Sec. 44)
-// ==========================================================================
+// Yomu architectural glossary data
 
 window.YOMU_GLOSSARY_DATA = [
   {
@@ -33,7 +30,7 @@ window.YOMU_GLOSSARY_DATA = [
     definition_en: "V8 bytecode compiler tool used to compile .yomu scraper modules from JavaScript into index.jsc binaries, providing code obfuscation and native-speed execution without exposing raw source logic."
   },
   {
-    term: "Obra Canónica (Canonical Work)",
+    term: "Ficha Principal (Master Series Entry)",
     category_es: "Normalización & Catálogo",
     category_en: "Normalization & Catalog",
     definition_es: "Registro maestro autoritativo en MangaBaka (yomu_mangabaka.db) que unifica títulos de escaneos, alias romanizados, autores y portadas canónicas de múltiples fuentes.",
@@ -134,8 +131,8 @@ window.YOMU_GLOSSARY_DATA = [
     term: "Renderizado Progresivo de Viewport",
     category_es: "Motor de Lectura",
     category_en: "Reading Engine",
-    definition_es: "Técnica de optimización de memoria que mantiene un rango activo de lectura de ±1,200px alrededor del scroll del usuario, garantizando 60+ FPS sin saturar la VRAM de la GPU.",
-    definition_en: "Memory management technique that maintains an active reading window of ±1,200px around the user's current scroll position, ensuring ultra-smooth 60+ FPS scrolling regardless of chapter length."
+    definition_es: "Técnica de optimización de memoria que mantiene un rango activo de lectura de ±1,200px alrededor del scroll del usuario, garantizando desplazamiento fluido y continuo sin saturar la VRAM de la GPU.",
+    definition_en: "Memory management technique that maintains an active reading window of ±1,200px around the user's current scroll position, ensuring ultra-smooth, tear-free scrolling regardless of chapter length."
   },
   {
     term: "RAM Watchdog (ResourceManager)",

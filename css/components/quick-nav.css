@@ -1,7 +1,4 @@
-/* ==========================================================================
-   YOMU (ヨム) — Floating Quick-Navigation Rail Component
-   Left-docked quick jump navigation with reactive scroll-spy
-   ========================================================================== */
+/* Floating quick jump rail */
 
 .quick-nav-dock {
   position: fixed;

@@ -1,26 +1,26 @@
-// ==========================================================================
-// YOMU (ヨム) — Main Application Coordinator & Orchestrator
-// Coordinates Modules, Mobile Nav Drawer & Section Scroll Spy
-// ==========================================================================
+// Main application coordinator and scroll spy
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Localization
+  // 1. Initialize Localization immediately for text rendering
   if (window.YOMU_I18N) window.YOMU_I18N.init();
 
-  // 2. Initialize Simulators & Gallery
-  if (window.YOMU_READER_SIM) window.YOMU_READER_SIM.init();
-  if (window.YOMU_GALLERY_VIEWER) window.YOMU_GALLERY_VIEWER.init();
-  if (window.YOMU_SYNC_SIM) window.YOMU_SYNC_SIM.init();
+  // 2. Initialize Interactive Simulators and Viewers asynchronously to avoid UI freeze
+  requestAnimationFrame(() => {
+    if (window.YOMU_READER_SIM) window.YOMU_READER_SIM.init();
+    if (window.YOMU_SYNC_SIM) window.YOMU_SYNC_SIM.init();
 
-  // 3. Initialize Viewers & Matrices
-  if (window.YOMU_ARCH_VIEWER) window.YOMU_ARCH_VIEWER.init();
-  if (window.YOMU_CAPABILITIES_VIEWER) window.YOMU_CAPABILITIES_VIEWER.init();
-  if (window.YOMU_BENCHMARK_VIEWER) window.YOMU_BENCHMARK_VIEWER.init();
-  if (window.YOMU_ROADMAP_VIEWER) window.YOMU_ROADMAP_VIEWER.init();
-
-  // 4. Initialize Glossary Viewer
-  if (window.YOMU_GLOSSARY_VIEWER) window.YOMU_GLOSSARY_VIEWER.init();
-  else if (window.YOMU_GLOSSARY_MODAL) window.YOMU_GLOSSARY_MODAL.init();
+    // Secondary components initialized on next frame
+    requestAnimationFrame(() => {
+      if (window.YOMU_GALLERY_VIEWER) window.YOMU_GALLERY_VIEWER.init();
+      if (window.YOMU_ARCH_VIEWER) window.YOMU_ARCH_VIEWER.init();
+      if (window.YOMU_CAPABILITIES_VIEWER) window.YOMU_CAPABILITIES_VIEWER.init();
+      if (window.YOMU_BENCHMARK_VIEWER) window.YOMU_BENCHMARK_VIEWER.init();
+      if (window.YOMU_ROADMAP_VIEWER) window.YOMU_ROADMAP_VIEWER.init();
+      if (window.YOMU_GLOSSARY_VIEWER) window.YOMU_GLOSSARY_VIEWER.init();
+      else if (window.YOMU_GLOSSARY_MODAL) window.YOMU_GLOSSARY_MODAL.init();
+      if (window.YOMU_LEGAL_MODAL) window.YOMU_LEGAL_MODAL.init();
+    });
+  });
 
   // 5. Mobile Navigation Drawer Toggle
   const mobileToggle = document.getElementById('mobile-nav-toggle');

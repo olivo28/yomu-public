@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Architectural Glossary Modal Module (Bilingual ES/EN)
-// Interactive 29-Term Search & Dialog Inspector
-// ==========================================================================
+// Architectural glossary modal and search
 
 (function() {
   const modal = document.getElementById('glossary-modal');

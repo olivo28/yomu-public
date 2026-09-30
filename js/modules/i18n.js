@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — i18n Localization Engine Module
-// Instant DOM and Dynamic Content Translation (Spanish / English)
-// ==========================================================================
+// i18n localization engine
 
 (function() {
   let currentLang = localStorage.getItem('yomu_lang') || 'es';

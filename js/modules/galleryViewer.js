@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Authentic Screenshots Gallery Module (Bilingual ES/EN)
-// Interactive switcher for real desktop application screenshots (10 Views)
-// ==========================================================================
+// Real application screenshot gallery
 
 (function() {
   const categories = [

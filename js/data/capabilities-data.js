@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Capabilities & System Deep Dives Data
-// Scraper Matrix, Tracker Matrix, Local Containers & 10 Architectural ADRs (Bilingual ES/EN)
-// ==========================================================================
+// Capabilities and architectural ADRs data
 
 window.YOMU_CAPABILITIES_DATA = {
   // Scraper Capability Matrix (docs/MODULES.md & Brief Sec. 12)

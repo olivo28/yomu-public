@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Competitive Benchmark Matrix Data (Bilingual ES/EN)
-// 12 Concrete Technical Criteria vs Desktop/Mobile Ecosystem
-// ==========================================================================
+// Competitive benchmark comparison data
 
 window.YOMU_BENCHMARK_DATA = [
   {

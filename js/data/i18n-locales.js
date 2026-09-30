@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Bilingual Localization Dictionaries
-// Complete English (en) and Spanish (es) Canonical Translations
-// ==========================================================================
+// Yomu bilingual localization dictionaries (Spanish / English)
 
 window.YOMU_LOCALES = {
   es: {
@@ -17,7 +14,7 @@ window.YOMU_LOCALES = {
     "nav.whys": "Decisiones Técnicas",
     "nav.benchmark": "Comparativa",
     "nav.roadmap": "Roadmap",
-    "nav.glossary": "Glosario (29)",
+    "nav.glossary": "Glosario",
 
     // Sub-Pages Headers
     "arch.pageTag": "Arquitectura & Especificación Interna",
@@ -31,16 +28,16 @@ window.YOMU_LOCALES = {
     "portal.tag": "Exploración Técnica",
     "portal.title": "Documentación & Arquitectura Profunda",
     "portal.archTitle": "Arquitectura & Decisiones Técnicas",
-    "portal.archDesc": "15 subsistemas desacoplados, esquemas DDL duales SQLite, sandbox IPC y 10 registros de decisiones formales.",
+    "portal.archDesc": "Subsistemas desacoplados, esquemas DDL SQLite duales, sandbox IPC y registro de decisiones de diseño.",
     "portal.archBtn": "Explorar Arquitectura →",
     "portal.ecoTitle": "Ecosistema, Benchmark & Glosario",
-    "portal.ecoDesc": "Matrices de scrapers en bytecode V8, comparativa objetiva de 12 criterios contra Mihon/Kavita y glosario de 29 términos.",
+    "portal.ecoDesc": "Matrices de compatibilidad de fuentes, comparativa frente a Mihon/Kavita y glosario técnico completo.",
     "portal.ecoBtn": "Ver Ecosistema & Benchmark →",
 
     // Hero Section
     "hero.badge": "BETA PRIVADA EN PRUEBAS • v3.0.0 [RESONANCE] • 16 SUITES PASADAS",
     "hero.title": "El Lector Híbrido de Manga y Webtoons para Escritorio",
-    "hero.subtitle": "Software nativo para Windows y Linux diseñado para unificar tu biblioteca local de archivos (.cbz, .zip, .pdf) con scraping modular sigiloso y sincronización automática tri-tracker con AniList, MyAnimeList y MangaBaka.",
+    "hero.subtitle": "Software nativo para Windows, Linux y macOS diseñado para unificar tu biblioteca local de archivos (.cbz, .zip, .pdf) con scraping modular sigiloso y sincronización automática tri-tracker con AniList, MyAnimeList y MangaBaka.",
     "hero.ctaSimulator": "Probar Simulador del Motor",
     "hero.ctaArchitecture": "Ver Arquitectura Interna",
     "hero.privateBetaNotice": "Actualmente en fase de pruebas internas y optimización cerrada por el creador Olivo28. No disponible para descarga pública por el momento.",
@@ -110,22 +107,22 @@ window.YOMU_LOCALES = {
     "sync.payloadLocal": "Capítulo 14.5 leído",
     "sync.protoMapping": "Normalización MangaBaka",
     "sync.payloadMB": "progress: 14 (Entero)",
-    "sync.truncationTitle": "Truncamiento Preventivo de Enteros (Invariante Arquitectónico):",
-    "sync.truncationExplainer": "MyAnimeList y MangaBaka no admiten capítulos decimales en sus contratos de actualización. Yomu aplica estrictamente Math.floor(ch) antes de despachar las peticiones de red, erradicando los errores 400 Bad Request y garantizando sincronización sin discrepancias falsas.",
+    "sync.truncationTitle": "Truncamiento de Capítulos Decimales:",
+    "sync.truncationExplainer": "MyAnimeList y MangaBaka no admiten capítulos fraccionales en sus APIs. Yomu aplica Math.floor(capítulo) antes de enviar las peticiones, evitando rechazos 400 y manteniendo el estado sincronizado.",
 
     // Architecture Explorer
     "arch.tag": "Ingeniería Interna",
     "arch.title": "Especificación de Subsistemas y Datos",
-    "arch.subtitle": "Consulta las fichas canónicas de 15 subsistemas, esquemas DDL dual SQLite y el contrato IPC de 31 canales autorizados.",
-    "arch.tabSubsystems": "Subsistemas (15 Fichas)",
+    "arch.subtitle": "Consulta las especificaciones de subsistemas, esquemas SQLite duales y el contrato IPC entre procesos.",
+    "arch.tabSubsystems": "Subsistemas del Lector",
     "arch.tabDatabase": "Esquemas DDL SQLite",
     "arch.tabIpc": "Contratos IPC (preload.js)",
 
     // Capabilities Matrices
     "cap.tag": "Capacidades del Sistema",
-    "cap.title": "Matrices Técnicas de Scrapers, Trackers y Formatos",
-    "cap.subtitle": "Inspección detallada de compatibilidad de fuentes en línea, trackers unificados y contenedores locales de archivo.",
-    "cap.scraperTitle": "Matriz de Capacidades de Scrapers (.yomu en Bytecode V8)",
+    "cap.title": "Compatibilidad de Fuentes, Trackers y Formatos",
+    "cap.subtitle": "Inspección detallada de soporte de fuentes en línea, trackers unificados y contenedores locales de archivo.",
+    "cap.scraperTitle": "Compatibilidad de Módulos (.yomu en Bytecode V8)",
     "cap.colSource": "Fuente / Tipo",
     "cap.colSearch": "Búsqueda",
     "cap.colDetails": "Metadatos",
@@ -133,22 +130,22 @@ window.YOMU_LOCALES = {
     "cap.colPages": "Imágenes / CDN",
     "cap.colSessions": "Sesiones",
     "cap.colTurnstile": "Evasión Turnstile",
-    "cap.trackerTitle": "Matriz de Capacidades de Trackers (Sync Hub Tri-Tracker)",
+    "cap.trackerTitle": "Capacidades de Trackers (Sync Hub Tri-Tracker)",
     "cap.colTracker": "Servicio",
     "cap.colAuth": "Protocolo de Autenticación",
     "cap.colDecimal": "Soporte de Decimales",
     "cap.colLimits": "Límites de API",
     "cap.colToken": "Renovación de Tokens",
     "cap.colSync": "Tipo de Sincronización",
-    "cap.containersTitle": "Contenedores y Formatos de Archivo Local Soportados",
+    "cap.containersTitle": "Formatos y Contenedores Locales Soportados",
 
     // Engineering Decisions (ADRs)
     "whys.tag": "Decisiones de Ingeniería",
-    "whys.title": "10 Decisiones Arquitectónicas de Ingeniería (ADRs)",
-    "whys.subtitle": "Rigor técnico y justificación de los pilares que hacen a Yomu inmune a fugas de VRAM y bloqueos antibot.",
-    "whys.filterAll": "Todas las Decisiones (10 ADRs)",
-    "whys.filterReader": "Motor de Lectura (5 ADRs)",
-    "whys.filterWorkers": "Workers Chromium (5 ADRs)",
+    "whys.title": "Decisiones de Diseño y Rendimiento (ADRs)",
+    "whys.subtitle": "Fundamentos técnicos detrás de la estabilidad de memoria y la interacción con servicios externos.",
+    "whys.filterAll": "Todas las Decisiones",
+    "whys.filterReader": "Motor de Lectura",
+    "whys.filterWorkers": "Workers Chromium",
     "whys.workersTitle": "5 Razones Técnicas para los Workers de Chromium Fuera de Pantalla",
 
     // Benchmark Matrix
@@ -170,13 +167,13 @@ window.YOMU_LOCALES = {
     "road.filterPlanned": "Próximos Sprints",
 
     // Glossary Page
-    "glossary.badge": "DICCIONARIO DE INGENIERÍA • 29 PRIMITIVAS",
+    "glossary.badge": "GLOSARIO TÉCNICO",
     "glossary.title": "Glosario Arquitectónico de Yomu",
-    "glossary.subtitle": "29 Definiciones Canónicas y Primitivas de Diseño del Sistema",
+    "glossary.subtitle": "Términos técnicos, patrones de diseño y conceptos clave del lector",
     "glossary.searchPlaceholder": "Buscar término (ej. AbortController, Bytenode, Parity)...",
-    "glossary.filterAll": "Todos los Términos (29)",
+    "glossary.filterAll": "Todos los Términos",
     "glossary.noResults": "No se encontraron términos que coincidan con la búsqueda.",
-    "glossary.counter": "Mostrando {count} de 29 términos",
+    "glossary.counter": "Mostrando {count} términos",
 
     // Quick Navigation Dock (Floating Side Rail)
     "quicknav.header": "Secciones",
@@ -184,17 +181,17 @@ window.YOMU_LOCALES = {
     "quicknav.gallery": "Interfaz Real",
     "quicknav.syncHub": "Sync Hub",
     "quicknav.portal": "Exploración",
-    "quicknav.subsystems": "15 Subsistemas",
+    "quicknav.subsystems": "Subsistemas",
     "quicknav.schemas": "SQLite DDL",
     "quicknav.ipc": "Sandbox IPC",
-    "quicknav.adrs": "10 ADRs",
+    "quicknav.adrs": "Decisiones ADR",
     "quicknav.capabilities": "Capacidades",
     "quicknav.containers": "Formatos",
     "quicknav.benchmark": "Benchmark",
     "quicknav.roadmap": "Roadmap",
     "quicknav.search": "Buscador",
     "quicknav.categories": "Categorías",
-    "quicknav.terms": "29 Términos",
+    "quicknav.terms": "Glosario",
 
     // Manual de Usuario
     "nav.manual": "Manual de Uso",
@@ -203,12 +200,16 @@ window.YOMU_LOCALES = {
     "manual.subtitle": "Guía ilustrada paso a paso para dominar tu biblioteca de manga, modos de lectura fluidos e inmersivos, sincronización con AniList/MAL y extensiones modulares.",
     
     "manual.sec1.title": "1. Primeros Pasos e Instalación",
-    "manual.sec1.desc": "Yomu es un motor de lectura de escritorio nativo para Windows y Linux, diseñado bajo los principios de 100% privacidad, cero telemetría externa y arquitectura offline-first con SQLite WAL dual.",
+    "manual.sec1.desc": "Yomu es un motor de lectura de escritorio nativo para Windows, Linux y macOS, diseñado bajo los principios de 100% privacidad, cero telemetría externa y arquitectura offline-first con SQLite WAL dual.",
     "manual.sec1.sub1": "Requisitos del Sistema",
-    "manual.sec1.req1": "Windows 10 u 11 (64-bit) o distribuciones Linux modernas (AppImage/Debian/Arch/Steam Deck).",
+    "manual.sec1.req1": "Windows 10 u 11 (64-bit), distribuciones Linux modernas (AppImage/Debian/Arch/Steam Deck) o macOS 11+ (Intel / Apple Silicon).",
     "manual.sec1.req2": "4 GB de memoria RAM mínima (el consumo de Yomu en reposo es inferior a 180 MB).",
     "manual.sec1.req3": "Aceleración por GPU recomendada para escalado de imágenes en tiempo real.",
     "manual.sec1.tip": "💡 Almacén Local Seguro: Todos tus datos, historiales y marcadores se guardan de forma aislada en tu equipo (AppData o ~/.config/Yomu). Al actualizar de versión nunca perderás tus datos.",
+    "manual.sec1.macosTitle": "🍎 Compatibilidad con macOS (Sin Certificado de Desarrollador)",
+    "manual.sec1.macosDesc": "Yomu funciona de forma nativa en macOS (Intel y Apple Silicon M1/M2/M3/M4). Al tratarse de una compilación de software libre distribuida sin la suscripción comercial anual de Apple Developer, el sistema operativo activará Gatekeeper mostrando que la app no proviene de un desarrollador identificado. Para ejecutarla sin problemas, utiliza cualquiera de estos pasos:",
+    "manual.sec1.macosStep1": "Opción 1 (Gráfica): En Finder, haz Clic Derecho (Control + Clic) sobre Yomu.app > pulsa Abrir > confirma en el cuadro de diálogo pulsando Abrir.",
+    "manual.sec1.macosStep2": "Opción 2 (Terminal): Abre la Terminal y retira la cuarentena ejecutando: xattr -cr /Applications/Yomu.app",
 
     "manual.sec2.title": "2. Gestión de Biblioteca y Catálogo Global",
     "manual.sec2.sub1": "Añadir Carpetas Locales (.cbz, .zip, .pdf)",
@@ -254,10 +255,27 @@ window.YOMU_LOCALES = {
     "manual.sec5.e2": "Identidad Canónica & Anti-Bloqueo: Peticiones identificadas oficialmente respetando las directrices de CDN y @Home de MangaDex y otros servidores.",
     "manual.sec5.e3": "Mantenimiento Independiente: Si una fuente online cambia su web, solo se actualiza su archivo .yomu sin necesidad de reinstalar Yomu.",
 
-    // Footer
+    // Footer & Legal
     "footer.desc": "Lector híbrido de manga y webtoons de alto rendimiento para escritorio. Construido con arquitectura No-Bundler, sandboxing estricto y cero telemetría.",
     "footer.creator": "Diseñado y desarrollado por Olivo28",
-    "footer.license": "Aplicación de escritorio de código cerrado • Todos los derechos reservados."
+    "footer.license": "Aplicación de escritorio de código cerrado • Todos los derechos reservados.",
+    "footer.terms": "Términos de Uso",
+    "footer.privacy": "Política de Privacidad",
+
+    // Legal Modal
+    "legal.titleTerms": "Términos de Uso",
+    "legal.titlePrivacy": "Política de Privacidad",
+    "legal.tabTerms": "Términos de Uso",
+    "legal.tabPrivacy": "Política de Privacidad",
+    "legal.close": "Cerrar",
+    "legal.termsP1": "Yomu es un lector de manga y cómics de escritorio para uso personal, privado y sin ánimo de lucro.",
+    "legal.termsP2": "La aplicación funciona como un visor de archivos locales (.cbz, .zip, .pdf) y cliente de lectura. Los usuarios son los únicos responsables del contenido que cargan o visualizan a través de la aplicación o mediante extensiones modulares.",
+    "legal.termsP3": "Yomu no aloja, distribuye ni posee derechos sobre los contenidos escaneados de terceros. Las marcas comerciales, personajes y títulos mencionados pertenecen a sus respectivos autores y editoriales.",
+    "legal.termsP4": "El software se entrega 'tal cual' en versión beta, sin garantías explícitas ni implícitas de disponibilidad ininterrumpida de servicios de terceros (como trackers o servidores externos).",
+    "legal.privacyP1": "En Yomu tu privacidad es absoluta. La aplicación funciona con una arquitectura 100% offline-first y no recopila, almacena ni transmite ningún dato de telemetría a servidores propios o de terceros.",
+    "legal.privacyP2": "Toda tu biblioteca, historial de lectura, marcadores y configuraciones se almacenan exclusivamente de forma local en tu equipo dentro de bases de datos SQLite cifradas en tu directorio de usuario.",
+    "legal.privacyP3": "Al conectar tus cuentas de AniList o MyAnimeList, los tokens OAuth se guardan en tu almacenamiento local y únicamente se comunican de forma directa y cifrada (HTTPS) con las APIs oficiales de dichos servicios para registrar tu progreso.",
+    "legal.privacyP4": "No existen cookies de rastreo, anuncios publicitarios ni analíticas ocultas. Eres el único dueño de tu información de lectura."
   },
 
   en: {
@@ -273,7 +291,7 @@ window.YOMU_LOCALES = {
     "nav.whys": "Engineering Decisions",
     "nav.benchmark": "Benchmark",
     "nav.roadmap": "Roadmap",
-    "nav.glossary": "Glossary (29)",
+    "nav.glossary": "Glossary",
 
     // Sub-Pages Headers
     "arch.pageTag": "Architecture & Internal Specifications",
@@ -287,16 +305,16 @@ window.YOMU_LOCALES = {
     "portal.tag": "Technical Deep Dive",
     "portal.title": "Deep Documentation & Architecture",
     "portal.archTitle": "Architecture & Engineering ADRs",
-    "portal.archDesc": "15 decoupled subsystems, dual SQLite DDL schemas, IPC sandbox, and 10 formal architectural decisions.",
+    "portal.archDesc": "Decoupled subsystems, dual SQLite DDL schemas, IPC sandbox, and architectural decision records.",
     "portal.archBtn": "Explore Architecture →",
     "portal.ecoTitle": "Ecosystem, Benchmark & Specs",
-    "portal.ecoDesc": "V8 bytecode scraper matrices, objective 12-criteria benchmark vs Mihon/Kavita, and 29-term canonical glossary.",
+    "portal.ecoDesc": "Source compatibility matrices, objective benchmark vs Mihon/Kavita, and architectural glossary.",
     "portal.ecoBtn": "View Ecosystem & Benchmark →",
 
     // Hero Section
     "hero.badge": "CLOSED PRIVATE BETA • v3.0.0 [RESONANCE] • 16 SUITES PASSED",
     "hero.title": "The Hybrid Manga & Webtoon Engine for Desktop",
-    "hero.subtitle": "Native desktop client for Windows and Linux unifying your offline archive vault (.cbz, .zip, .pdf) with modular stealth web scraping and unified 3-way cloud tracking with AniList, MyAnimeList, and MangaBaka.",
+    "hero.subtitle": "Native desktop client for Windows, Linux, and macOS unifying your offline archive vault (.cbz, .zip, .pdf) with modular stealth web scraping and unified 3-way cloud tracking with AniList, MyAnimeList, and MangaBaka.",
     "hero.ctaSimulator": "Launch Engine Simulator",
     "hero.ctaArchitecture": "Inspect Architecture",
     "hero.privateBetaNotice": "Currently undergoing closed internal testing and optimization by lead creator Olivo28. Not available for public download at this stage.",
@@ -366,22 +384,22 @@ window.YOMU_LOCALES = {
     "sync.payloadLocal": "Chapter 14.5 read",
     "sync.protoMapping": "MangaBaka Normalization",
     "sync.payloadMB": "progress: 14 (Integer)",
-    "sync.truncationTitle": "Preventive Integer Truncation (Architectural Invariant):",
-    "sync.truncationExplainer": "MyAnimeList and MangaBaka do not accept decimal chapters in their update contracts. Yomu strictly enforces Math.floor(ch) prior to dispatching network requests, eradicating 400 Bad Request errors and preventing false synchronization discrepancies.",
+    "sync.truncationTitle": "Decimal Chapter Truncation:",
+    "sync.truncationExplainer": "MyAnimeList and MangaBaka do not accept fractional chapters in their update APIs. Yomu applies Math.floor(chapter) prior to dispatching requests, avoiding 400 errors and keeping sync state consistent.",
 
     // Architecture Explorer
     "arch.tag": "Internal Engineering",
     "arch.title": "Subsystem Specifications & Schemas",
-    "arch.subtitle": "Inspect canonical 15-subsystem specification sheets, dual SQLite DDL schemas, and the 31-channel IPC interface contract.",
-    "arch.tabSubsystems": "Subsystems (15 Sheets)",
+    "arch.subtitle": "Inspect technical specifications of subsystems, dual SQLite DDL schemas, and IPC inter-process contracts.",
+    "arch.tabSubsystems": "Reader Subsystems",
     "arch.tabDatabase": "SQLite DDL Schemas",
     "arch.tabIpc": "IPC Contracts (preload.js)",
 
     // Capabilities Matrices
     "cap.tag": "System Capabilities",
-    "cap.title": "Technical Matrices: Scrapers, Trackers & Containers",
+    "cap.title": "Source, Tracker & Format Compatibility",
     "cap.subtitle": "Detailed compatibility matrix for online scrapers, unified cloud trackers, and local container formats.",
-    "cap.scraperTitle": "Scraper Capability Matrix (.yomu V8 Bytecode Packages)",
+    "cap.scraperTitle": "Module Compatibility (.yomu V8 Bytecode)",
     "cap.colSource": "Source / Type",
     "cap.colSearch": "Search",
     "cap.colDetails": "Metadata",
@@ -389,7 +407,7 @@ window.YOMU_LOCALES = {
     "cap.colPages": "Pages / CDN",
     "cap.colSessions": "Sessions",
     "cap.colTurnstile": "Turnstile Bypass",
-    "cap.trackerTitle": "Tracker Capability Matrix (3-Way Sync Hub)",
+    "cap.trackerTitle": "Tracker Capabilities (3-Way Sync Hub)",
     "cap.colTracker": "Service",
     "cap.colAuth": "Authentication Protocol",
     "cap.colDecimal": "Decimal Support",
@@ -400,11 +418,11 @@ window.YOMU_LOCALES = {
 
     // Engineering Decisions (ADRs)
     "whys.tag": "Engineering Decisions",
-    "whys.title": "10 Architectural Engineering Decisions (ADRs)",
-    "whys.subtitle": "Technical justification of the core pillars making Yomu immune to VRAM leaks and anti-bot blocks.",
-    "whys.filterAll": "All Decisions (10 ADRs)",
-    "whys.filterReader": "Reading Engine (5 ADRs)",
-    "whys.filterWorkers": "Chromium Workers (5 ADRs)",
+    "whys.title": "Design & Performance Decisions (ADRs)",
+    "whys.subtitle": "Technical justification of core pillars ensuring memory stability and clean external service interactions.",
+    "whys.filterAll": "All Decisions",
+    "whys.filterReader": "Reading Engine",
+    "whys.filterWorkers": "Chromium Workers",
     "whys.workersTitle": "5 Concrete Reasons for Off-Screen Chromium BrowserWorkers",
 
     // Benchmark Matrix
@@ -426,13 +444,13 @@ window.YOMU_LOCALES = {
     "road.filterPlanned": "Upcoming Sprints",
 
     // Glossary Page
-    "glossary.badge": "ENGINEERING DICTIONARY • 29 PRIMITIVES",
+    "glossary.badge": "TECHNICAL GLOSSARY",
     "glossary.title": "Yomu Architectural Glossary",
-    "glossary.subtitle": "29 Canonical Definitions and Core System Design Primitives",
+    "glossary.subtitle": "Technical terms, design patterns, and core reader concepts",
     "glossary.searchPlaceholder": "Search term (e.g. AbortController, Bytenode, Parity)...",
-    "glossary.filterAll": "All Terms (29)",
+    "glossary.filterAll": "All Terms",
     "glossary.noResults": "No terms matched your search query.",
-    "glossary.counter": "Showing {count} of 29 terms",
+    "glossary.counter": "Showing {count} terms",
 
     // Quick Navigation Dock (Floating Side Rail)
     "quicknav.header": "Sections",
@@ -440,17 +458,17 @@ window.YOMU_LOCALES = {
     "quicknav.gallery": "Real Interface",
     "quicknav.syncHub": "Sync Hub",
     "quicknav.portal": "Deep Dive",
-    "quicknav.subsystems": "15 Subsystems",
+    "quicknav.subsystems": "Subsystems",
     "quicknav.schemas": "SQLite DDL",
     "quicknav.ipc": "IPC Sandbox",
-    "quicknav.adrs": "10 ADRs",
+    "quicknav.adrs": "ADR Decisions",
     "quicknav.capabilities": "Capabilities",
     "quicknav.containers": "Containers",
     "quicknav.benchmark": "Benchmark",
     "quicknav.roadmap": "Roadmap",
     "quicknav.search": "Search",
     "quicknav.categories": "Categories",
-    "quicknav.terms": "29 Terms",
+    "quicknav.terms": "Glossary",
 
     // User Manual
     "nav.manual": "User Manual",
@@ -459,12 +477,16 @@ window.YOMU_LOCALES = {
     "manual.subtitle": "Illustrated step-by-step guide to master your local manga library, smooth and immersive reading modes, AniList/MAL cloud sync, and modular extensions.",
     
     "manual.sec1.title": "1. Getting Started & Installation",
-    "manual.sec1.desc": "Yomu is a native desktop manga engine for Windows and Linux built around strict privacy, zero external telemetry, and an offline-first dual SQLite WAL architecture.",
+    "manual.sec1.desc": "Yomu is a native desktop manga engine for Windows, Linux, and macOS built around strict privacy, zero external telemetry, and an offline-first dual SQLite WAL architecture.",
     "manual.sec1.sub1": "System Requirements",
-    "manual.sec1.req1": "Windows 10 or 11 (64-bit) or modern Linux distributions (AppImage/Debian/Arch/Steam Deck).",
+    "manual.sec1.req1": "Windows 10 or 11 (64-bit), modern Linux distributions (AppImage/Debian/Arch/Steam Deck), or macOS 11+ (Intel / Apple Silicon).",
     "manual.sec1.req2": "4 GB minimum RAM (Yomu idle memory footprint stays strictly under 180 MB).",
     "manual.sec1.req3": "Hardware GPU acceleration recommended for real-time bilinear image scaling.",
     "manual.sec1.tip": "💡 Isolated Local Vault: All your databases, reading history, and bookmarks stay locally in your user folder (AppData or ~/.config/Yomu). Upgrading versions will never wipe your personal data.",
+    "manual.sec1.macosTitle": "🍎 macOS Compatibility (Unsigned Gatekeeper Bypass)",
+    "manual.sec1.macosDesc": "Yomu runs natively on macOS (Intel and Apple Silicon M1/M2/M3/M4). Since this independent release is built without Apple's paid annual developer certificate, macOS Gatekeeper will flag the app as unverified. You can launch it easily via either of these methods:",
+    "manual.sec1.macosStep1": "Option 1 (Graphical): In Finder, Right-Click (Control + Click) on Yomu.app > select Open > confirm by clicking Open in the prompt.",
+    "manual.sec1.macosStep2": "Option 2 (Terminal): Open Terminal and strip the quarantine flag by running: xattr -cr /Applications/Yomu.app",
 
     "manual.sec2.title": "2. Library Management & Global Catalog",
     "manual.sec2.sub1": "Adding Local Folders (.cbz, .zip, .pdf)",
@@ -510,9 +532,26 @@ window.YOMU_LOCALES = {
     "manual.sec5.e2": "Canonical Identity & Anti-Blocking: Requests carry official application identifiers adhering to MangaDex @Home and CDN guidelines.",
     "manual.sec5.e3": "Independent Maintenance: If a web source changes its layout, only its standalone .yomu module is updated without touching the core reader.",
 
-    // Footer
+    // Footer & Legal
     "footer.desc": "High-performance hybrid manga and webtoon desktop engine. Engineered with a No-Bundler architecture, strict sandboxing, and zero telemetry.",
     "footer.creator": "Designed and engineered by Olivo28",
-    "footer.license": "Closed-source desktop application • All rights reserved."
+    "footer.license": "Closed-source desktop application • All rights reserved.",
+    "footer.terms": "Terms of Service",
+    "footer.privacy": "Privacy Policy",
+
+    // Legal Modal
+    "legal.titleTerms": "Terms of Service",
+    "legal.titlePrivacy": "Privacy Policy",
+    "legal.tabTerms": "Terms of Service",
+    "legal.tabPrivacy": "Privacy Policy",
+    "legal.close": "Close",
+    "legal.termsP1": "Yomu is a desktop manga and comic reader engineered for personal, private, non-commercial use.",
+    "legal.termsP2": "The software serves as a local file viewer (.cbz, .zip, .pdf) and reading client. Users assume sole responsibility for content loaded or viewed through the application and modular extensions.",
+    "legal.termsP3": "Yomu does not host, distribute, or claim ownership over scanned third-party content. Trademarks, characters, and titles referenced belong strictly to their respective authors and publishers.",
+    "legal.termsP4": "The software is provided 'as is' in beta form without express or implied warranties regarding persistent uptime of third-party APIs (such as trackers or external servers).",
+    "legal.privacyP1": "In Yomu your privacy is absolute. The application operates on a 100% offline-first architecture and collects, stores, or transmits zero telemetry to first- or third-party servers.",
+    "legal.privacyP2": "Your entire library, reading progress, bookmarks, and preferences reside exclusively on your local machine within encrypted SQLite databases in your user directory.",
+    "legal.privacyP3": "When connecting AniList or MyAnimeList accounts, OAuth credentials stay in local storage and communicate directly via encrypted HTTPS to official APIs to sync reading status.",
+    "legal.privacyP4": "There are no tracking cookies, analytics trackers, or hidden telemetry beacons. You maintain sole ownership of your reading data."
   }
 };

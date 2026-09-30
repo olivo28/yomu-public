@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Benchmark Viewer Module (Bilingual ES/EN)
-// 12-Point Comparative Matrix Table Renderer
-// ==========================================================================
+// Benchmark comparison table renderer
 
 (function() {
   function renderBenchmarkTable() {

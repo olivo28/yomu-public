@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Technical Roadmap Data (Bilingual ES/EN)
-// Verified Milestones from v3.0 Resonance Beta to v3.3 P2P LAN Mesh
-// ==========================================================================
+// Yomu technical roadmap data
 
 window.YOMU_ROADMAP_DATA = [
   {
@@ -60,8 +57,8 @@ window.YOMU_ROADMAP_DATA = [
     status: "planned",
     statusLabel_es: "PLANEADO",
     statusLabel_en: "PLANNED",
-    summary_es: "Interfaz de usuario '10-Foot' optimizada para Steam Deck, PCs de mano y mandos de sala con navegación a 60 FPS por botones y gatillos.",
-    summary_en: "10-Foot user interface optimized for Steam Deck, handheld PCs, and living room gamepads with 60 FPS controller navigation.",
+    summary_es: "Interfaz de usuario '10-Foot' optimizada para Steam Deck, PCs de mano y mandos de sala con navegación ultrafluida por botones y gatillos.",
+    summary_en: "10-Foot user interface optimized for Steam Deck, handheld PCs, and living room gamepads with fluid, responsive controller navigation.",
     deliverables_es: [
       "Navegación completa por gamepad (mapeo nativo para XInput, DualSense y controles de Steam Deck)",
       "Modo UI de 3 metros para televisión con tipografía ampliada, vibración háptica y salto rápido de capítulo en gatillos",

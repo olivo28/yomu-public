@@ -1,6 +1,6 @@
 <div align="center">
 
-# Yomu (ヨム)
+# Yomu (ヨム — MangAI)
 
 **The next-generation desktop manga & webtoon reader with a high-performance continuous canvas engine.**
 

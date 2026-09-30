@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Sync Hub Simulator Module (Bilingual ES/EN)
-// 3-Way Cloud Tracker Propagation with Math.floor Integer Truncation
-// ==========================================================================
+// Sync Hub simulator module
 
 (function() {
   let isRunning = false;

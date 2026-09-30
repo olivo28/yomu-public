@@ -87,11 +87,15 @@
   width: 100%;
   max-width: 580px;
   height: auto;
+  aspect-ratio: 1357 / 1920;
   display: block;
   margin: 0 auto;
   transform: translateZ(0);
-  will-change: transform, filter, opacity;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.reader-webtoon .reader-image[data-page-index="4"] {
+  aspect-ratio: 2714 / 1920;
 }
 
 /* Paged Layout Flow (Single & Double Spread) */
@@ -120,6 +124,11 @@
 
 .reader-paged.single .reader-image {
   max-width: 90%;
+}
+
+.reader-paged .reader-image.reader-image-wide {
+  max-width: 92%;
+  width: auto;
 }
 
 /* GPU Shader Filters (Matched with src/renderer/css/views/reader.css) */

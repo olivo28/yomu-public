@@ -43,7 +43,7 @@
         <li><a href="./manual.html" class="nav-link" data-i18n="nav.manual">Manual de Uso</a></li>
         <li><a href="./architecture.html" class="nav-link" data-i18n="nav.architecture">Arquitectura</a></li>
         <li><a href="./ecosystem.html" class="nav-link" data-i18n="nav.ecosystem">Ecosistema & Datos</a></li>
-        <li><a href="./glossary.html" class="nav-link active" data-i18n="nav.glossary">Glosario (29)</a></li>
+        <li><a href="./glossary.html" class="nav-link active" data-i18n="nav.glossary">Glosario</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -71,7 +71,7 @@
       </h1>
 
       <p class="hero-subtitle" style="max-width:760px; margin:0 auto;" data-i18n="glossary.subtitle">
-        29 Definiciones Canónicas y Primitivas de Diseño del Sistema
+        Términos técnicos, patrones de diseño y conceptos clave del lector
       </p>
     </div>
   </header>
@@ -127,16 +127,51 @@
           <div style="font-size:0.78rem; color:var(--text-muted);" data-i18n="footer.license">
             Aplicación de escritorio de código cerrado • Todos los derechos reservados.
           </div>
+          <div class="footer-links">
+            <button class="footer-link" data-open-legal="terms" data-i18n="footer.terms">Términos de Uso</button>
+            <span class="footer-sep">•</span>
+            <button class="footer-link" data-open-legal="privacy" data-i18n="footer.privacy">Política de Privacidad</button>
+          </div>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Accessible Legal Modal (Terms & Privacy) -->
+  <div class="legal-modal-overlay" id="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-tab-terms">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <div class="legal-tabs" role="tablist">
+          <button class="legal-tab-btn active" id="legal-tab-terms" data-tab="terms" role="tab" aria-selected="true" data-i18n="legal.tabTerms">Términos de Uso</button>
+          <button class="legal-tab-btn" id="legal-tab-privacy" data-tab="privacy" role="tab" aria-selected="false" data-i18n="legal.tabPrivacy">Política de Privacidad</button>
+        </div>
+        <button class="legal-close-btn" id="legal-close-btn" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <div class="legal-modal-body">
+        <div class="legal-pane active" data-pane="terms" role="tabpanel" aria-labelledby="legal-tab-terms">
+          <h3 data-i18n="legal.titleTerms">Términos de Uso</h3>
+          <p data-i18n="legal.termsP1">Yomu es un lector de manga y cómics de escritorio para uso personal, privado y sin ánimo de lucro.</p>
+          <p data-i18n="legal.termsP2">La aplicación funciona como un visor de archivos locales (.cbz, .zip, .pdf) y cliente de lectura. Los usuarios son los únicos responsables del contenido que cargan o visualizan a través de la aplicación o mediante extensiones modulares.</p>
+          <p data-i18n="legal.termsP3">Yomu no aloja, distribuye ni posee derechos sobre los contenidos escaneados de terceros. Las marcas comerciales, personajes y títulos mencionados pertenecen a sus respectivos autores y editoriales.</p>
+          <p data-i18n="legal.termsP4">El software se entrega 'tal cual' en versión beta, sin garantías explícitas ni implícitas de disponibilidad ininterrumpida de servicios de terceros (como trackers o servidores externos).</p>
+        </div>
+        <div class="legal-pane" data-pane="privacy" role="tabpanel" aria-labelledby="legal-tab-privacy">
+          <h3 data-i18n="legal.titlePrivacy">Política de Privacidad</h3>
+          <p data-i18n="legal.privacyP1">En Yomu tu privacidad es absoluta. La aplicación funciona con una arquitectura 100% offline-first y no recopila, almacena ni transmite ningún dato de telemetría a servidores propios o de terceros.</p>
+          <p data-i18n="legal.privacyP2">Toda tu biblioteca, historial de lectura, marcadores y configuraciones se almacenan exclusivamente de forma local en tu equipo dentro de bases de datos SQLite cifradas en tu directorio de usuario.</p>
+          <p data-i18n="legal.privacyP3">Al conectar tus cuentas de AniList o MyAnimeList, los tokens OAuth se guardan en tu almacenamiento local y únicamente se comunican de forma directa y cifrada (HTTPS) con las APIs oficiales de dichos servicios para registrar tu progreso.</p>
+          <p data-i18n="legal.privacyP4">No existen cookies de rastreo, anuncios publicitarios ni analíticas ocultas. Eres el único dueño de tu información de lectura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modular Scripts: Strict Loading Sequence -->
   <script src="./js/data/i18n-locales.js"></script>
   <script src="./js/data/glossary-data.js"></script>
   <script src="./js/modules/i18n.js"></script>
   <script src="./js/modules/glossaryViewer.js"></script>
+  <script src="./js/modules/legalModal.js"></script>
   <script src="./js/app.js"></script>
 </body>
 </html>

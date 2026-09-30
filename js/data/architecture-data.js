@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Architecture Data Layer (Bilingual ES/EN)
-// The 16 Core User-Facing Subsystems (Brief Sec. 9), SQLite DDLs & IPC Contract
-// ==========================================================================
+// Yomu architecture specifications, SQLite DDLs and IPC contracts
 
 window.YOMU_ARCH_DATA = {
   // 15 Core User-Facing Subsystems
@@ -38,8 +35,8 @@ window.YOMU_ARCH_DATA = {
       tag_en: "VIEWER",
       name_es: "2. Motor de Lectura Híbrido",
       name_en: "2. Hybrid Reading Engine",
-      purpose_es: "Motor visual de 60+ FPS para cascada vertical continua (webtoons), pliego doble japonés RTL y página simple.",
-      purpose_en: "60+ FPS visual engine for continuous vertical cascade (webtoons), Japanese double-page spread RTL, and single page.",
+      purpose_es: "Motor visual de alta respuesta y renderizado fluido para cascada vertical continua (webtoons), pliego doble japonés RTL y página simple.",
+      purpose_en: "High-response visual engine with fluid rendering for continuous vertical cascade (webtoons), Japanese double-page spread RTL, and single page.",
       responsibilities_es: [
         "Renderizado progresivo con margen de viewport de ±1,200px para erradicar fugas de VRAM",
         "Compensación de paridad de pliego mediante la tecla de acceso rápido 'P'",
@@ -55,8 +52,8 @@ window.YOMU_ARCH_DATA = {
       keyFiles: ["src/renderer/js/components/reader.js", "src/renderer/js/components/reader/"],
       security_es: "Aislamiento estricto de eventos DOM con AbortController al cambiar de vista.",
       security_en: "Strict DOM event isolation via AbortController upon view destruction.",
-      performance_es: "Tasa de refresco constante a 60+ FPS en capítulos largos de más de 120 páginas.",
-      performance_en: "Rock-solid 60+ FPS frame rates on continuous 120+ page webtoon chapters."
+      performance_es: "Desplazamiento inmersivo y constante en capítulos largos de más de 120 páginas.",
+      performance_en: "Rock-solid, tear-free frame delivery on continuous 120+ page webtoon chapters."
     },
     {
       id: "global-search",
@@ -263,8 +260,8 @@ window.YOMU_ARCH_DATA = {
       keyFiles: ["src/main/core/sync/syncManager.js", "src/main/core/sync/HubAnalyzerWorker.js"],
       security_es: "Aislamiento de fallos: el error de una API externa no bloquea los demás servicios.",
       security_en: "Fault isolation: third-party API outages do not block other active tracking services.",
-      performance_es: "Cálculo diferencial en worker thread desacoplado manteniendo la app a 60 FPS.",
-      performance_en: "Decoupled worker thread diff calculations maintaining 60 FPS UI fluidity."
+      performance_es: "Cálculo diferencial en worker thread desacoplado manteniendo la interfaz fluida y receptiva.",
+      performance_en: "Decoupled worker thread diff calculations maintaining fluid UI responsiveness."
     },
     {
       id: "mapping-vault",

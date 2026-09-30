@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Capabilities Viewer Module (Bilingual ES/EN)
-// Scraper Matrix, Tracker Matrix, Containers, 5 Whys & BrowserWorkers
-// ==========================================================================
+// Capabilities matrices and engineering ADR cards
 
 (function() {
   function getLangState() {

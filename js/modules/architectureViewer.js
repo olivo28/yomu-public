@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Architecture Viewer Module (Bilingual ES/EN)
-// Interactive 16-Subsystem Explorer, Dual SQLite DDLs & IPC Contract Table
-// ==========================================================================
+// Architecture explorer pane and DDL renderer
 
 (function() {
   let activeTab = 'subsystems';

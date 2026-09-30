@@ -1,7 +1,4 @@
-// ==========================================================================
-// YOMU (ヨム) — Architectural Glossary Viewer Module (Bilingual ES/EN)
-// Full-Page 29-Term Search, Category Filtering & Card Renderer
-// ==========================================================================
+// Architectural glossary viewer and search
 
 (function() {
   let activeCategory = 'all';

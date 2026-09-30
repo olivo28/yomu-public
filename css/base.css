@@ -1,7 +1,4 @@
-/* ==========================================================================
-   YOMU (ヨム) — Base Design System & CSS Foundation
-   Sober, High-Precision Desktop Dark Theme
-   ========================================================================== */
+/* Yomu base design tokens */
 
 :root {
   /* Core Backgrounds */
@@ -76,19 +73,6 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
-}
-
-/* Background Subtle Blueprint Grid */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Typography Standards */
@@ -536,5 +520,168 @@ code, pre {
   background: rgba(99, 102, 241, 0.2);
   color: #818cf8;
   border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Footer Legal Navigation Links */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+.footer-sep {
+  color: var(--border-medium);
+  font-size: 0.75rem;
+}
+
+/* Legal Modal Dialog (Terms & Privacy) */
+.legal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 8, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.legal-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.legal-modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  width: 92%;
+  max-width: 680px;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg), 0 20px 40px rgba(0, 0, 0, 0.45);
+  transform: scale(0.96);
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+}
+
+.legal-modal-overlay.open .legal-modal-content {
+  transform: scale(1);
+}
+
+.legal-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-secondary);
+}
+
+.legal-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.legal-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.legal-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.legal-tab-btn.active {
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.14);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.legal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.legal-close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.legal-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.68;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.legal-pane {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.legal-pane.active {
+  display: flex;
+}
+
+.legal-pane h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.legal-pane p {
+  margin: 0;
 }
 
