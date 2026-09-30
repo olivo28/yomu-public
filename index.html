@@ -315,7 +315,7 @@
           <div class="sync-node" id="node-local">
             <div class="sync-node-icon">📖</div>
             <div class="sync-node-title" data-i18n="sync.nodeLocal">Motor de Lectura</div>
-            <div class="sync-node-protocol">Local SQLite</div>
+            <div class="sync-node-protocol" data-i18n="sync.protoLocal">Local SQLite</div>
             <div class="sync-node-payload" data-i18n="sync.payloadLocal">Capítulo 14.5 leído</div>
           </div>
 
@@ -325,7 +325,7 @@
             <div class="sync-node-icon">🗺️</div>
             <div class="sync-node-title" data-i18n="sync.nodeMapping">Mapping Engine</div>
             <div class="sync-node-protocol" data-i18n="sync.protoMapping">Normalización MangaBaka</div>
-            <div class="sync-node-payload">mb_id: #999999991</div>
+            <div class="sync-node-payload" data-i18n="sync.payloadMapping">mb_id: #999999991</div>
           </div>
 
           <div class="sync-node-connector">➔</div>
@@ -333,8 +333,8 @@
           <div class="sync-node" id="node-anilist">
             <div class="sync-node-icon">🅰️</div>
             <div class="sync-node-title" data-i18n="sync.nodeAniList">AniList</div>
-            <div class="sync-node-protocol">OAuth + GraphQL</div>
-            <div class="sync-node-payload">progress: 14.5 (Decimal OK)</div>
+            <div class="sync-node-protocol" data-i18n="sync.protoAniList">OAuth + GraphQL</div>
+            <div class="sync-node-payload" data-i18n="sync.payloadAniList">progress: 14.5 (Decimal OK)</div>
           </div>
 
           <div class="sync-node-connector">➔</div>
@@ -342,8 +342,8 @@
           <div class="sync-node highlight-truncation" id="node-mal">
             <div class="sync-node-icon">Ⓜ️</div>
             <div class="sync-node-title" data-i18n="sync.nodeMAL">MyAnimeList</div>
-            <div class="sync-node-protocol">OAuth 2.0 PKCE S256</div>
-            <div class="sync-node-payload">Math.floor(14.5) -> 14</div>
+            <div class="sync-node-protocol" data-i18n="sync.protoMAL">OAuth 2.0 PKCE S256</div>
+            <div class="sync-node-payload" data-i18n="sync.payloadMAL">Math.floor(14.5) -> 14</div>
           </div>
 
           <div class="sync-node-connector">➔</div>
@@ -351,7 +351,7 @@
           <div class="sync-node highlight-truncation" id="node-mb">
             <div class="sync-node-icon">🌸</div>
             <div class="sync-node-title" data-i18n="sync.nodeMB">MangaBaka</div>
-            <div class="sync-node-protocol">v1 REST API</div>
+            <div class="sync-node-protocol" data-i18n="sync.protoMB">v1 REST API</div>
             <div class="sync-node-payload" data-i18n="sync.payloadMB">progress: 14 (Entero)</div>
           </div>
         </div>
@@ -391,9 +391,9 @@
               15 subsistemas desacoplados, esquemas DDL duales SQLite, sandbox IPC y 10 registros de decisiones formales.
             </p>
             <ul class="portal-card-bullets">
-              <li class="portal-card-bullet">15 Subsistemas Canónicos (Main Process vs. UI vs. Workers)</li>
-              <li class="portal-card-bullet">Esquemas DDL SQLite (mangai_reader.db y yomu_mangabaka.db)</li>
-              <li class="portal-card-bullet">10 Architectural Decision Records (ADRs) documentados</li>
+              <li class="portal-card-bullet" data-i18n="portal.archBullet1">15 Subsistemas Canónicos (Main Process vs. UI vs. Workers)</li>
+              <li class="portal-card-bullet" data-i18n="portal.archBullet2">Esquemas DDL SQLite (mangai_reader.db y yomu_mangabaka.db)</li>
+              <li class="portal-card-bullet" data-i18n="portal.archBullet3">10 Architectural Decision Records (ADRs) documentados</li>
             </ul>
           </div>
           <span class="portal-card-cta" data-i18n="portal.archBtn">Explorar Arquitectura →</span>
@@ -410,9 +410,9 @@
               Matrices de scrapers en bytecode V8, comparativa objetiva de 12 criterios contra Mihon/Kavita y glosario de 29 términos.
             </p>
             <ul class="portal-card-bullets">
-              <li class="portal-card-bullet">Scrapers en Bytecode V8 (MangaDex & MangaNato)</li>
-              <li class="portal-card-bullet">Comparativa Técnica Rigurosa (12 Criterios Objetivos)</li>
-              <li class="portal-card-bullet">Roadmap Evolutivo y Glosario Canónico de 29 Términos</li>
+              <li class="portal-card-bullet" data-i18n="portal.ecoBullet1">Scrapers en Bytecode V8 (MangaDex & MangaNato)</li>
+              <li class="portal-card-bullet" data-i18n="portal.ecoBullet2">Comparativa Técnica Rigurosa (12 Criterios Objetivos)</li>
+              <li class="portal-card-bullet" data-i18n="portal.ecoBullet3">Roadmap Evolutivo y Glosario Canónico de 29 Términos</li>
             </ul>
           </div>
           <span class="portal-card-cta" data-i18n="portal.ecoBtn">Ver Ecosistema & Benchmark →</span>

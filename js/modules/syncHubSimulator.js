@@ -99,15 +99,30 @@
   }
 
   function resetNodesToLang() {
-    const isEs = (window.YOMU_I18N && typeof window.YOMU_I18N.getLang === 'function') 
-      ? window.YOMU_I18N.getLang() === 'es' 
-      : true;
+    if (!window.YOMU_I18N) return;
+    const t = window.YOMU_I18N.t;
+
+    const pLocalProto = document.querySelector('#node-local .sync-node-protocol');
     const pLocal = document.querySelector('#node-local .sync-node-payload');
-    const pMapping = document.querySelector('#node-mapping .sync-node-protocol');
+    const pMappingProto = document.querySelector('#node-mapping .sync-node-protocol');
+    const pMapping = document.querySelector('#node-mapping .sync-node-payload');
+    const pALProto = document.querySelector('#node-anilist .sync-node-protocol');
+    const pAL = document.querySelector('#node-anilist .sync-node-payload');
+    const pMALProto = document.querySelector('#node-mal .sync-node-protocol');
+    const pMAL = document.querySelector('#node-mal .sync-node-payload');
+    const pMBProto = document.querySelector('#node-mb .sync-node-protocol');
     const pMB = document.querySelector('#node-mb .sync-node-payload');
-    if (pLocal) pLocal.textContent = isEs ? 'Capítulo 14.5 leído' : 'Chapter 14.5 read';
-    if (pMapping) pMapping.textContent = isEs ? 'Normalización MangaBaka' : 'MangaBaka Normalization';
-    if (pMB) pMB.textContent = isEs ? 'progress: 14 (Entero)' : 'progress: 14 (Integer)';
+
+    if (pLocalProto) pLocalProto.textContent = t('sync.protoLocal');
+    if (pLocal) pLocal.textContent = t('sync.payloadLocal');
+    if (pMappingProto) pMappingProto.textContent = t('sync.protoMapping');
+    if (pMapping) pMapping.textContent = t('sync.payloadMapping');
+    if (pALProto) pALProto.textContent = t('sync.protoAniList');
+    if (pAL) pAL.textContent = t('sync.payloadAniList');
+    if (pMALProto) pMALProto.textContent = t('sync.protoMAL');
+    if (pMAL) pMAL.textContent = t('sync.payloadMAL');
+    if (pMBProto) pMBProto.textContent = t('sync.protoMB');
+    if (pMB) pMB.textContent = t('sync.payloadMB');
   }
 
   function init() {
